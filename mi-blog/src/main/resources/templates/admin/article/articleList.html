@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
 <head th:replace="~{admin/partial/head :: head}"></head>
 
 <div id="wrapper" class="gray-bg dashbard-1">
@@ -8,7 +8,7 @@
                 <h2>文章列表</h2>
                 <ol class="breadcrumb">
                     <li>
-                        <a href="/admin/home">主页</a>
+                        <a>主页</a>
                     </li>
                     <li>
                         <a>文章管理</a>
@@ -18,9 +18,8 @@
                     </li>
                 </ol>
             </div>
-            <div class="col-lg-2">
+        <div class="col-lg-2"></div>
 
-            </div>
         </div>
     <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">
@@ -34,27 +33,26 @@
                                         <option th:each="type : ${typeList}" th:value="${type.typeId}" th:text="${type.typeName}"></option>
                                     </select>
                                 </div>
-                                <div class="col-sm-5 m-b-xs">
-                                    <select data-placeholder="请选择标签" name="tagId" id="tagId" class="chosen-select" multiple style="width:430px;" tabindex="5">
+                                <div class="col-sm-2 m-b-xs">
+                                    <select data-placeholder="请选择标签" name="tagId" id="tagId" class="chosen-select"
+                                            multiple style="width:200px;" tabindex="5">
                                         <option hassubinfo="true" th:each="tag : ${tagList}" th:text="${tag.tagName}" th:value="${tag.tagId}"></option>
                                     </select>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <div class="input-group m-b-xs">
                                         <input type="text" id="keyword" placeholder="请输入标题"
                                                class="input-sm form-control" style="font-size: 12px;">
-                                        <span class="input-group-btn">
-                                                            <button id="article-search" type="button" class="btn btn-sm btn-primary">搜索</button>
-                                                        </span>
+                                        <span class="input-group-btn">  </span>
+
                                     </div>
                                 </div>
-
+                                <button id="article-search" type="button" class="btn btn-sm btn-primary">搜索</button>
                                 <button id="article-add" type="button" class="btn btn-sm btn-danger m-b-xs">新增文章</button>
                             </div>
 
-                            <div id="dataList">
+                            <div id="dataList"></div>
 
-                            </div>
                             <div>
                                 <div style="float: left" class="pagination">共
                                     <span id="total-num"></span>

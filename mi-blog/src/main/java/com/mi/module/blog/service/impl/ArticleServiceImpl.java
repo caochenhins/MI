@@ -118,5 +118,20 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         return result;
     }
 
+    @Override
+    public ArticleVo getArticleCustomById(String articleId) {
+        return articleMapper.getArticleCustomById(articleId);
+    }
+
+    @Override
+    public Article getLastArticle(String articleId) {
+        return articleMapper.getLastArticle(articleId);
+    }
+
+    @Override
+    public Article getNextArticle(String articleId) {
+        return articleMapper.getNextArticle(articleId);
+    }
+
 
 }

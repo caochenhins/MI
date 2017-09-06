@@ -17,8 +17,8 @@ $(function(){
                     totalPages: data.totalPageNum,
                     visiblePages: 5,
                     currentPage: data.page,
-                    prev: '<li class="prev"><a href="javascript:;">Previous</a></li>',
-                    next: '<li class="next"><a href="javascript:;">Next</a></li>',
+                    prev: '<li class="prev"><a href="javascript:;">上一页</a></li>',
+                    next: '<li class="next"><a href="javascript:;">下一页</a></li>',
                     page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
                     onPageChange: function (num, type) {
                         // 加载分类列表

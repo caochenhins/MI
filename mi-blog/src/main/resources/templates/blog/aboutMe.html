@@ -1,248 +1,115 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="zh">
-<head th:fragment="head">
-    <meta charset="utf-8">
-    <title>EumJi | 博客</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="本站是EumJi基于hexo博客主题+spring-boot作为后端开发而成.内容涵盖Java基础、JAVA的web框架、等其他技术的分享。也会包含一些个人在生活中的笔记或者有意思的事情.">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="EumJi | 博客">
-    <meta property="og:url" content="http://www>eumji025.com">
-    <meta property="og:site_name" content="EumJi | 博客">
-    <meta property="og:description" content="本站是EumJi基于hexo博客主题+spring-boot作为后端开发而成。内容涵盖Java基础、JAVA的web框架、等其他技术的分享。也会包含一些个人在生活中的笔记或者有意思的事情.">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="EumJi | 博客">
-    <meta name="twitter:description" content="本站是EumJi基于hexo博客主题+spring-boot作为后端开发而成.内容涵盖Java基础、JAVA的web框架、等其他技术的分享。也会包含一些个人在生活中的笔记或者有意思的事情.">
-    <meta name="keywords" content="Spring Boot, Spring,Linux,Java,Hadoop" />
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" type="text/css" href="/css/about.me.css">
-    <style>
-        a{
-            color: #000;
-        }
-        #footer{
-            position: fixed;
-            bottom: 0;
-            width:100%;
-            height: 30px;
-            background-color: #fbfffc;
-        }
-        body{
-            height: 100%;
-        }
-        .main{
-            position: relative;
-
-        }
-
-    </style>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-8254913025324557",
-            enable_page_level_ads: true
-        });
-    </script>
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-86515876-2', 'auto');
-        ga('send', 'pageview');
-
-    </script>
-    <!--百度统计-->
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?d0860f6c7721ce1eda7a584188cae847";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
-    <!--百度自动推送-->
-    <script>
-        (function(){
-            var bp = document.createElement('script');
-            var curProtocol = window.location.protocol.split(':')[0];
-            if (curProtocol === 'https') {
-                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-            }
-            else {
-                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-            }
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(bp, s);
-        })();
-    </script>
-
-    <script async type="text/javascript" color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
-</head>
-
+<head th:replace="blog/part/head :: head"></head>
 <body>
-<header id="header" th:replace="blog/part/header :: header">
-</header>
-<div class="main">
 
-    <div class="account">
-        <div class="account-info">
-            <div class="account-top">
-                <div class="account-top-left">
-                    <img src="/image/avatar.jpg" alt="">
+<article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+
+
+        <header class="article-header">
+
+
+            <h1 class="article-title" itemprop="name">
+                猫爷
+            </h1>
+
+
+            <div class="article-meta">
+
+                <div class="article-date">
+                    <i class="fa fa-calendar"></i>
+                    <a href="/aboutme/index.html">
+                        <time datetime="2016-09-15T01:59:56.000Z" itemprop="datePublished">2016-09-15</time>
+                    </a>
                 </div>
-                <!--<div class="account-top-right">
-                    <h2>李靖 </h2>
-                    <p>java Developer</p>
-                </div>-->
-                <div class="clear"></div>
+
+
+                <span id="busuanzi_container_page_pv" style="display: inline;">被围观 <span
+                        id="busuanzi_value_page_pv">12130</span> 次</span>
             </div>
-            <div class="account-bottom">
-                <div class="tabs">
-                    <nav>
-                        <a><span> </span>简介</a>
-                        <a><span class="icon1"></span>技能</a>
-                        <a><span class="icon2"></span>爱好</a>
-                        <a><span class="icon3"></span>联系我</a>
-                        <a><span class="icon4"></span>其他</a>
-                        <option></option>
-                        <option></option>
-                    </nav>
-                    <div class="content">
-                        <div class="text">
-                            <div class="text-right">
-                                <h4>Introduction</h4>
-                                <div class="clear"></div>
-                                <p>作者90后,毕业于吉首大学计算机科学与技术专业,目前个人从事java相关的工作,主要研究和工作的方向在java和linux,
-                                    平时会学习一些新的技术或者框架,有时候会阅读一些java的经典书籍,以提高自己对于技术的理解.</p>
-                                <p>大学期间弄过一些乱七八糟的东西,非常遗憾的事情是没有去完成一个优质的作品,在今后的工作和生活中,可能会尝试更多的东西.大学期间android,hadoop,linux,java等都略微学过一点点,目前主要规划是在java基础和java的一些框架学习中.</p>
+
+        </header>
 
 
-                            </div>
+        <div class="article-entry" itemprop="articleBody" lg-uid="lg0">
 
-                        </div>
-                    </div>
-                    <div class="content">
-                        <div class="text">
-                            <div class="text-right">
-                                <h4>Skills</h4>
-                                <section class="container">
-                                    <div class="progress">
-                                        <span style="width: 40%;"><span>html</span></span>
-                                    </div>
 
-                                    <div class="progress">
-                                        <span class="green" style="width: 50%;"><span>js</span></span>
-                                    </div>
+            <p>生于1991年，福建人，毕业于闽江学院，软件工程学士，曾任职于浪潮分公司、新石器，现就职于欧浦，从事电商、物流、ERP、金融产品研发工作。</p>
+            <p>
+                从大学一不小心入错行开始接触软件相关知识，闲时研究与实践新技术，对构架开发颇有兴趣。由于星座特性双子鬼点子多，曾独立开发或组织团队研究过一些项目，都被抢了（没有后台的悲哀）。通过闲时研究与实践新技术，丰富自身的技术知识架构，拓展广度深度面对问题就会有更多的解决思路和方向。
+                另一方面，通过结帮拉派组队打团，对敏捷管理一些了解，通过禅道与TAPD系统，制定开发过程等精细化管理方式，让来自网络的队友们能够在低沟通成本之下，完成高效率的开发任务。</p>
+            <p>目前，主要研究Spring 全家桶 。在这里感谢各位持续关注并提出很多好建议与好问题的读者！</p>
+            <p>虽然有很多东西都想分享出来，但最近因工作任务繁忙，减缓代码与博文更新频率，还请见谅。</p>
 
-                                    <div class="progress">
-                                        <span class="orange" style="width: 50%;"><span>hadoop</span></span>
-                                    </div>
-
-                                    <div class="progress">
-                                        <span class="red" style="width: 60%;"><span>linux</span></span>
-                                    </div>
-
-                                    <div class="progress">
-                                        <span class="blue" style="width: 70%;"><span>java</span></span>
-                                    </div>
-                                    <div class="progress">
-                                        <span style="width: 15%;"><span>python</span></span>
-                                    </div>
-                                    <div class="progress">
-                                        <span style="width: 0%;"><span>go</span></span>
-                                    </div>
-                                </section>
-                                <div class="text_wrap" hidden>
-                                </div >
-                            </div>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <div class="text">
-
-                            <div class="text-right">
-                                <h4>Hobby</h4>
-                                <div class="Hobby">
-
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="content">
-                        <div class="text ">
-                            <div class="text-right">
-                                <h4>Connection</h4>
-                                <div class="myinfo">
-                                    <table>
-                                        <tbody>
-                                        <tr>
-                                            <td>手机 | 18574406580</td>
-                                        </tr>
-                                        <tr>
-                                            <td>邮箱 | eumji025@gmail.com</td>
-                                        </tr>
-                                        <tr>
-                                            <td>telegram | EumJi</td>
-                                        </tr>
-                                        <tr>
-                                            <td>github | <a href="https://github.com/eumji025">eumji025</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>OSC | <a href="https://git.oschina.net/eumji025">eumji025</a></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <div class="text ">
-
-                            <div class="text-right">
-                                <h4>Ohter Talk</h4>
-                                <p>作者于2017年6月10日毕业了！！！！</p>
-                                <p>祝所有计科班同学前程似锦，工作顺利，学业有成，爱情美满，身体健康！！！</p>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
+            <div style="text-align: center;font-size: 20px;font-weight: 1000;color:orangered;margin-bottom: 20px;">
+                如果您有任何想法或问题需要讨论或交流，可进入<a href="">交流区</a>发表您的想法或问题。
             </div>
+
+            <!-- css -->
+            <style type="text/css">
+                .center {
+                    text-align: center;
+                }
+            </style>
+            <!-- /css -->
+
+            <div class="center">
+
+                <!-- 代码1：放在页面需要展示的位置  -->
+                <!-- 如果您配置过sourceid，建议在div标签中配置sourceid、cid(分类id)，没有请忽略  -->
+                <div id="cyReward" role="cylabs" data-use="reward"></div>
+                <!-- 代码2：用来读取评论框配置，此代码需放置在代码1之后。 -->
+                <!-- 如果当前页面有评论框，代码2请勿放置在评论框代码之前。 -->
+                <!-- 如果页面同时使用多个实验室项目，以下代码只需要引入一次，只配置上面的div标签即可 -->
+                <script type="text/javascript" charset="utf-8"
+                        src="https://changyan.itc.cn/js/lib/jquery.js"></script>
+                <script type="text/javascript" charset="utf-8"
+                        src="https://changyan.sohu.com/js/changyan.labs.https.js?appid=cysYIxwh2"></script>
+
+            </div>
+
+            <style>
+                @media (min-width: 768px) {
+                    .copyright-left {
+                        float: left;
+                        width: 80%;
+                    }
+
+                    .copyright-right {
+                        float: left;
+                        width: 20%;
+                    }
+                }
+
+            </style>
+
+
+            <div style="text-align: center;">
+
+
+            </div>
+
         </div>
-    </div>
-</div>
-<footer id="footer" th:replace="blog/part/footer :: footer"></footer>
-<script src="/js/jquery.min.js"></script>
-<script>
-    $(function () {
-        $(".search-form").attr("hidden",true);
-        $("#search-form-wrap").attr("hidden",true);
-        $('.tabs nav a').on('click', function () {
-            show_content($(this).index());
-        });
-        show_content(0);
-        function show_content(index) {
-            // Make the content visible
-            $('.tabs .content.visible').removeClass('visible');
-            $('.tabs .content:nth-of-type(' + (index + 1) + ')').addClass('visible');
+        <footer class="article-footer">
 
-            // Set the tab to selected
-            $('.tabs nav a.selected').removeClass('selected');
-            $('.tabs nav a:nth-of-type(' + (index + 1) + ')').addClass('selected');
-        }
-    });
-    addEventListener("load", function () {
-        setTimeout(hideURLbar, 0);
-    }, false);
-    function hideURLbar() {
-        window.scrollTo(0, 1);
-    }
-</script>
+
+                                    <span style="display:inline-block;width:111px;float: right;">
+                                <a style="float:left;text-decoration:none;" target="_blank"
+                                   href="https://www.banquanyin.com/u/101704220005917">
+                                    <img src="https://s1.banquanyin.com/c/icon-yin-32.png" title="更多授权"
+                                         style="width:inherit;">
+                                </a>
+                                <a target="_blank" href="https://101704220005917.bqy.mobi">
+                                    <img src="https://s1.banquanyin.com/c/icon-auth-cr-32.png" title="获取授权"
+                                         style="width:inherit;">
+                                </a>
+                            </span>
+        </footer>
+    </div>
+
+</article>
+
+
 </body>
 </html>

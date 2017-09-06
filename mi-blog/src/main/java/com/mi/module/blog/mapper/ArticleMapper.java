@@ -26,4 +26,9 @@ public interface ArticleMapper extends BaseMapper<Article> {
 
     List<Article> loadArticle(Map<String, Object> param);
 
+    ArticleVo getArticleCustomById(String articleId);
+
+    Article getLastArticle(String articleId);
+
+    Article getNextArticle(String articleId);
 }

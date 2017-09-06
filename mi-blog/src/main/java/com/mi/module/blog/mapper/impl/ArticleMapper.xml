@@ -14,6 +14,7 @@
 		<result column="look_count" property="lookCount" />
 	</resultMap>
 
+
 	<resultMap id="article" type="com.mi.data.vo.ArticleVo">
 		<id column="article_id" property="articleId" />
 		<result column="title" property="title" />
@@ -90,7 +91,7 @@
 		from blog_article
 		group by DATE_FORMAT(create_time,'%Y年%m月') ORDER BY create_time desc
 	</select>
-
+	<!--通过关键字查找文章-->
 	<select id="selectArticleListByKeywords"  resultMap="BaseResultMap" parameterType="Map">
 		<if test="keyword != null and keyword != ''">
 			select article_id,title,description
@@ -102,4 +103,33 @@
 			from blog_article limit 0,10
 		</if>
 	</select>
+
+	<!--通过id查找 博文的详细信息-->
+	<select id="getArticleCustomById" resultMap="article" parameterType="String">
+        select * from blog_article ba
+        where ba.status = 1 and ba.article_id = #{articleId}
+    </select>
+
+	<!--获取上一篇文章信息  大于当前时间且最靠近当前时间的第一篇 -->
+	<select id="getLastArticle" resultType="com.mi.module.blog.entity.Article">
+		select article_id as articleId,title from blog_article
+		where create_time &gt; (select create_time from blog_article where article_id = #{articleId})
+		and status = 1
+		ORDER BY create_time asc LIMIT 1
+	</select>
+
+	<!--获取下一篇文章信息 小于当前时间且最靠近当前时间的第一篇-->
+	<select id="getNextArticle" resultType="com.mi.module.blog.entity.Article">
+		select article_id as articleId,title from blog_article
+		where create_time &lt; (select create_time from blog_article where article_id = #{articleId})
+		and status = 1
+		ORDER BY create_time desc LIMIT 1
+	</select>
+
+	<!--增加文章的阅读量-->
+	<update id="addArticleCount">
+		update blog_article set showCount = showCount+1 where article_id = #{articleId}
+	</update>
+
+
 </mapper>

@@ -19,14 +19,14 @@ $(function() {
             $("#total-num").text(data.totalCount);
             $("#total-page").text(data.totalPageNum);
             $("#current-page").text(data.page);
-            //初始化分页   2017年5月25日 update by eumji 由于插件在没有数据的时候会报错，所以添加一层判断
+            //初始化分页  由于插件在没有数据的时候会报错，所以添加一层判断
             if (pager.totalCount > 0 ) {
                 $.jqPaginator('#pagination', {
                     totalPages: data.totalPageNum,
                     visiblePages: 5,
                     currentPage: data.page,
-                    prev: '<li class="prev"><a href="javascript:;">Previous</a></li>',
-                    next: '<li class="next"><a href="javascript:;">Next</a></li>',
+                    prev: '<li class="prev"><a href="javascript:;">上一页</a></li>',
+                    next: '<li class="next"><a href="javascript:;">下一页</a></li>',
                     page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
                     onPageChange: function (num, type) {
                         // 加载管理员列表

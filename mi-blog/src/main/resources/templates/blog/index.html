@@ -15,10 +15,8 @@
             <!--个人基础信息-->
             <div class="inner profile-inner" th:replace="blog/left/base-of-me :: base_of_me"></div>
 
-            <!--友情链接-->
-            <div class="inner profile-inner" th:replace="blog/left/friend-link :: friend_link"></div>
-
         </aside>
+
 
         <!-- 中间部分-->
         <section id="main">
@@ -29,61 +27,61 @@
                 <!--<div class="load_title">正在努力加载站点....<br><span>V1.0</span></div>-->
             <!--</div>-->
 
-
-            <div id="main-article"></div>
-
-
-            <div style="margin-top: -29px;height:50px">
-                <div style="float: left;display: none" class="pagination">共
-                    <span id="total-num"></span>
-                    条记录
-                    <span id="current-page"></span>
-                    /
-                    <span id="total-page"></span>
-                </div>
+            <iframe name="indexFrame" id="indexFrame" frameborder="0"
+                    src="/main"
+                    style="margin:0 auto;width:100%;min-height: 800px;">
+            </iframe>
 
 
-                <div id="pagination" data-type="article" class="pagination" style="float: right">
-                </div>
 
-            </div>
         </section>
 
         <!-- 右边部分-->
         <aside id="sidebar">
             <!--公告-->
             <div class="widget-wrap" th:replace="blog/right/announcement :: announcement"></div>
-
             <!--每日一言-->
             <div class="widget-wrap" th:replace="blog/right/aphorism :: aphorism"></div>
-
             <!--文章分类-->
             <div class="widget-wrap" th:replace="blog/right/classification :: classification"></div>
-
             <!--文章归档-->
             <!--<div class="widget-wrap" th:replace="blog/part/article-archive :: article-archive"></div>-->
 
-            <!--微信公众号信息-->
-            <div class="inner profile-inner" th:replace="blog/right/wechat-info :: wechat_info"></div>
             <div id="toTop" class="fa fa-angle-up"></div>
         </aside>
-
     </div>
-
     <footer id="footer" th:replace="blog/part/footer :: footer"></footer>
+
+
 </div>
 
 <script src="/js/jquery.min.js"></script>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script src="/js/index.js"></script>
-<script src="/js/article.click.js"></script>
-<script src="/js/share.js"></script>
-<script src="/js/jqPaginator.min.js"></script>
-<script src="/admin/js/plugins/chosen/chosen.jquery.js"></script>
-<!-- Custom Scripts -->
+
+<!-- Search Scripts -->
 <script src="/js/insight.js"></script>
 <script src="/js/lightgallery.min.js"></script>
-<script src="/js/main.js"></script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="/admin/js/plugins/chosen/chosen.jquery.js"></script>
+
+
+<!-- 解决iframe自适应问题 -->
+<script type="text/javascript">
+    var result;
+    function autoIFrame() {
+        var iFrame = document.getElementById("indexFrame");
+        var bHeight = iFrame.contentWindow.document.body.scrollHeight;
+        var dHeight = iFrame.contentWindow.document.documentElement.scrollHeight;
+        var height = Math.max(bHeight, dHeight);
+        if (height <= iFrame.height) {  //满足就移除周期命令
+            window.clearInterval(result);
+        } else {
+            iFrame.height = height;
+        }
+    }
+    result = window.setInterval("autoIFrame()", 1000);//1s内少于可能出现加载失败
+</script>
+
 
 </body>
 </html>

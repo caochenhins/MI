@@ -8,12 +8,10 @@
 
         <header class="article-header">
 
-
             <h1 itemprop="name">
-                <a class="article-title" th:href="'/article/details/'+${article.articleId}" th:text="${article.title}"></a>
+                <a class="article-title" target="_blank" th:href="'/article/details/'+${article.articleId}"
+                   th:text="${article.title}"></a>
             </h1>
-
-
 
             <div class="article-meta">
 
@@ -48,7 +46,8 @@
         <div class="article-more">
             <p class="article-more-link">
                 <!--th:href="'/article/details/'+${articleList.id}"-->
-                <a title=" 查看更多 " class="read-more" th:href="'/article/details/'+${article.articleId}" style="cursor: pointer">查看更多</a>
+                <a title=" 详细 " class="read-more" target="_blank" th:href="'/article/details/'+${article.articleId}"
+                   style="cursor: pointer">阅读全文</a>
             </p>
         </div>
         <footer class="article-footer">

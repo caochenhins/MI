@@ -3,20 +3,20 @@
 <body>
 <div class="sidebar-collapse" th:fragment="sidebar">
     <ul class="nav" id="side-menu">
-
         <li class="nav-header">
-            <div class="dropdown profile-element"> <span>
-                                        <img alt="image" class="img-circle" th:src="${userInfo.avatarUrl}"/>
-                                         </span>
+            <div class="dropdown profile-element">
+                <span>
+                    <img alt="image" class="img-circle" th:src="${userInfo.avatarUrl}"/>
+                </span>
                 <a data-toggle="dropdown" class="dropdown-toggle" href="javascript:void(0)">
-                                            <span class="clear">
-                                                <span class="block m-t-xs">
-                                                    <strong class="font-bold">[[${userInfo.nickName}]]</strong>
-                                                </span>
-                                                <span class="text-muted text-xs block">
-                                                        超级管理员
-                                                <b class="caret"></b></span>
-                                            </span>
+                    <span class="clear">
+                        <span class="block m-t-xs">
+                            <strong class="font-bold">[[${userInfo.nickName}]]</strong>
+                        </span>
+                        <span class="text-muted text-xs block">
+                                超级管理员
+                        <b class="caret"></b></span>
+                    </span>
                 </a>
                 <ul class="dropdown-menu animated fadeInRight m-t-xs">
                     <li><a id="update-avatar">修改头像</a></li>
@@ -55,6 +55,18 @@
             </ul>
         </li>
 
+        <li id="partner-manage-li">
+            <a href="javascript:void(0)"><i class="fa fa fa-qrcode"></i>
+                <span class="nav-label">友情链接管理</span>
+                <span class="fa arrow"></span>
+            </a>
+            <ul class="nav nav-second-level">
+                <li id="partner-list-li">
+                    <a href="/admin/flink/list" target="mainFrame">友情链接列表</a>
+                </li>
+            </ul>
+        </li>
+
         <li id="article-manage-li">
             <a href="javascript:void(0)"><i class="fa fa fa-volume-up"></i>
                 <span class="nav-label">文章管理</span>
@@ -67,17 +79,6 @@
             </ul>
         </li>
 
-        <li id="partner-manage-li">
-            <a href="javascript:void(0)"><i class="fa fa fa-qrcode"></i>
-                <span class="nav-label">友情链接管理</span>
-                <span class="fa arrow"></span>
-            </a>
-            <ul class="nav nav-second-level">
-                <li id="partner-list-li">
-                    <a href="/admin/flink/list" target="mainFrame">友情链接列表</a>
-                </li>
-            </ul>
-        </li>
 
     </ul>
 </div>

@@ -1,7 +1,7 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>标签云</title>
+    <title>技术标签云</title>
     <script src="/js/jquery.min.js"></script>
     <script src="/js/rotator.js"></script>
     <style type="text/css">
@@ -123,6 +123,7 @@
 
 <body>
 <div id="debug">
+    <div id="returnIndex"><a href="/"> 返回 </a></div>
     <div id="camDist">0</div>
     <div id="angle">0</div>
     <div id="elm1d">0</div>
@@ -136,34 +137,14 @@
 <div id="x_axis">
     <div id="y_axis">
 
-        <div id="links">
+        <div id="links" th:each="tag : ${tagList}">
 
+            <a target="_blank" th:href="${tag.position}" th:text="${tag.tagName}"></a>
 
-            <a href="a?x=30&y=0&z=150">Tracked</a>
-            <a href="b?x=-200&y=23&z=-150">zlow</a>
-            <a href="c?x=60&y=-23&z=10">three</a>
-            <a href="d?x=-90&y=13&z=0">four</a>
-            <a href="e?x=120&y=-143&z=0">five</a>
-            <a href="http://www.kevo.com?x=-150&y=123&z=120">KEVO</a>
-            <a href="g?x=180&y=-23&z=0">seven</a>
-            <a href="h?x=210&y=23&z=0">eight</a>
-            <a href="b?x=200&y=13&z=-120">two</a>
-            <a href="d?x=100&y=63&z=0">four</a>
-            <a href="e?x=130&y=153&z=0">five</a>
-            <a href="f?x=-160&y=53&z=40">six</a>
-            <a href="g?x=10&y=-83&z=0">seven</a>
-            <a href="h?x=-220&y=-133&z=-40">eight</a>
-
-            <a href="e?x=130&y=353&z=230">far</a>
-            <a href="f?x=-160&y=53&z=430">out</a>
-            <a href="g?x=10&y=-83&z=230">asdfasd</a>
-            <a href="h?x=-220&y=-133&z=-420">ftw</a>
-
-
-            <a href="e?x=370&y=303&z=0">far</a>
-            <a href="f?x=-370&y=3&z=0">out</a>
-            <a href="g?x=70&y=-3&z=0">systems</a>
-            <a href="http://www.jquery.com?x=-270&y=-303&z=0">jquery</a>
+            <!--<a href="e?x=370&y=303&z=0">far</a>-->
+            <!--<a href="f?x=-370&y=3&z=0">out</a>-->
+            <!--<a href="g?x=70&y=-3&z=0">systems</a>-->
+            <!--<a href="http://www.jquery.com?x=-270&y=-303&z=0">jquery</a>-->
         </div>
     </div>
 </div>

@@ -2,7 +2,7 @@
 分页css
  */
 @charset "utf-8";
- .socialShare {
+.socialShare {
     display: block;
     width: 54px;
     height: 54px;
@@ -45,22 +45,22 @@
     text-indent: -9999px;
     display: none;
     background: no-repeat;
-	border: 6px solid #f5f5f5;
-	border-radius: 50%;
+    border: 6px solid #f5f5f5;
+    border-radius: 50%;
 }
 .socialShare .msb_network_button.sina {
-    background: url(../image/social.png) no-repeat -130px -87px;
+    background: url(../image/social.png) no-repeat -135px -92px;
 }
 .socialShare .msb_network_button.tQQ {
-    background: url(../image/social.png) no-repeat -18px -20px;
+    background: url(../image/social.png) no-repeat -24px -25px;
 }
 .socialShare .msb_network_button.qZone {
-    background: url(../image/social.png) no-repeat -73px -20px;
+    background: url(../image/social.png) no-repeat -78px -26px;
 }
 .socialShare .msb_network_button.douban {
-    background: url(../image/social.png) no-repeat -130px -151px;
+    background: url(../image/social.png) no-repeat -135px -155px;
 }
 .socialShare .msb_network_button.weixin {
-    background: url(../image/social.png) no-repeat -73px -87px;
+    background: url(../image/social.png) no-repeat -78px -92px;
 }
 .socialShare .msb_network_button:hover{transition: -moz-transform 2s ease-out 0s;border: 6px solid #eee;}

@@ -8,7 +8,7 @@
             <h2>分类列表</h2>
             <ol class="breadcrumb">
                 <li>
-                    <a href="/admin/home">主页</a>
+                    <a>主页</a>
                 </li>
                 <li>
                     <a>分类管理</a>
@@ -33,21 +33,17 @@
                                     <div class="input-group">
                                         <input type="text" id="keyword" placeholder="请输入分类名称"
                                                class="input-sm form-control">
-                                        <span class="input-group-btn">
-		                                        		<button id="search" type="button"
-                                                                class="btn btn-sm btn-primary">搜索</button>
-		                                        	</span>
+                                        <span class="input-group-btn">	</span>
                                     </div>
                                 </div>
+                                <button id="search" type="button" class="btn btn-sm btn-primary">搜索</button>
+
                                 <button id="add" type="button" class="btn btn-sm btn-danger">新增分类</button>
                             </form>
                         </div>
 
                         <!-- 表格数据 -->
-                        <div id="dataList">
-
-                        </div>
-
+                        <div id="dataList"></div>
                         <div>
                             <div style="float: left" class="pagination">共
                                 <span id="total-num"></span>
@@ -56,11 +52,7 @@
                                 /
                                 <span id="total-page"></span>
                             </div>
-
-                            <div id="pagination" class="pagination" style="float: right">
-
-                            </div>
-
+                            <div id="pagination" class="pagination" style="float: right"></div>
                         </div>
 
                     </div>

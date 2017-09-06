@@ -9,7 +9,7 @@
             <h2>标签列表</h2>
             <ol class="breadcrumb">
                 <li>
-                    <a href="/admin/home">主页</a>
+                    <a>主页</a>
                 </li>
                 <li>
                     <a>标签管理</a>
@@ -29,25 +29,18 @@
                 <div class="ibox float-e-margins">
                     <div class="ibox-content">
                         <div class="row">
-                            <form class="form-inline">
-                                <div class="col-sm-2">
-                                    <div class="input-group">
-                                        <input type="text" id="keyword" placeholder="请输入标签名称"
-                                               class="input-sm form-control">
-                                        <span class="input-group-btn">
-		                                        		<button id="search" type="button"
-                                                                class="btn btn-sm btn-primary">搜索</button>
-		                                        	</span>
-                                    </div>
+                            <div class="col-sm-2">
+                                <div class="input-group">
+                                    <input type="text" id="keyword" placeholder="请输入标签名称" class="input-sm form-control">
+                                    <span class="input-group-btn"></span>
                                 </div>
-                                <button id="add" type="button" class="btn btn-sm btn-danger">新增标签</button>
-                            </form>
+                            </div>
+                            <button id="search" type="button" class="btn btn-sm btn-primary">搜索</button>
+                            <button id="add" type="button" class="btn btn-sm btn-danger">新增标签</button>
                         </div>
 
                         <!-- 表格数据 -->
-                        <div id="dataList">
-
-                        </div>
+                        <div id="dataList"></div>
 
                         <div>
                             <div style="float: left" class="pagination">共
@@ -88,6 +81,6 @@
 
 <!-- 逻辑脚本 -->
 <script src="/admin/js/tag/tag.js"></script>
-</body>
 
+</body>
 </html>

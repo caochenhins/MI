@@ -67,4 +67,29 @@ public interface IArticleService extends IService<Article> {
      * @return
      */
     Integer updateArticle(Article article, String[] tags, String typeId);
+
+
+    /**
+     * 通过id获取文章的所以信息 包括标签和分类信息
+     *
+     * @param articleId
+     * @return
+     */
+    ArticleVo getArticleCustomById(String articleId);
+
+    /**
+     * 获取上一篇文章信息
+     *
+     * @param articleId
+     * @return
+     */
+    Article getLastArticle(String articleId);
+
+    /**
+     * 获取下一篇文章信息
+     *
+     * @param articleId
+     * @return
+     */
+    Article getNextArticle(String articleId);
 }

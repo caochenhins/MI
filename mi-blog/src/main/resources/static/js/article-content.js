@@ -1,6 +1,3 @@
-/**
- * Created by EumJi on 2017/4/16.
- */
 $(function() {
     var testEditormdView;
     $('#main').addClass('loaded');
@@ -19,7 +16,7 @@ $(function() {
         content: $("#"),
         url:getRootPath()+$("#article-url").attr("href"),
         title:$("#article-title").text(),
-        summary:'Eumji个人博客分享,欢迎指教',
+        summary: '个人博客分享,欢迎指教',
         pic:'http://of8rkrh1w.bkt.clouddn.com/2017/4/21/touxiang.jpg'
     });
 
@@ -28,17 +25,15 @@ $(function() {
 
 
 
-
-
 function getRootPath() {
-    //获取当前网址，如： http://localhost:8080/GameFngine/share/meun.jsp
+    //获取当前网址
     var curWwwPath = window.document.location.href;
-    //获取主机地址之后的目录，如： GameFngine/meun.jsp
+    //获取主机地址之后的目录
     var pathName = window.document.location.pathname;
     var pos = curWwwPath.indexOf(pathName);
-    //获取主机地址，如： http://localhost:8080
+    //获取主机地址
     var localhostPaht = curWwwPath.substring(0, pos);
-    //获取带"/"的项目名，如：/GameFngine
+    //获取带"/"的项目名
     var projectName = pathName.substring(0,
         pathName.substr(1).indexOf('/') + 1);
     return (localhostPaht + projectName);

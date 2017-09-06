@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="zh">
-
 <body>
 <header id="header" th:fragment="heaher">
     <div id="header-main" class="header-inner">
@@ -14,11 +13,16 @@
 
                 <!--<a class="main-nav-link" href="/popular">文章热门</a>-->
 
-                <!-- 标签云 -->
                 <a class="main-nav-link" href="/tag/cloud">标签云</a>
 
-                <a class="main-nav-link" href="/about/me">关于我</a>
+                <a title="页面High下" style="color:red;margin-left: 15px;" rel="alternate"
+                   class="mw-harlem_shake_slow wobble shake" href="javascript:shake()">
+                    <i class="fa fa-music"></i>
+                    High</a>
+
                 <!--<a class="main-nav-link" href="/thymeleaf">Thymeleaf模板文章</a>-->
+
+                <a class="main-nav-link" href="/about/me" target="indexFrame">关于我</a>
             </nav>
 
             <nav id="sub-nav">
@@ -29,6 +33,7 @@
                     </a>
                 </div>
             </nav>
+
 
             <div id="search-form-wrap">
 
@@ -67,19 +72,18 @@
                 </script>
 
             </div>
+
+
         </div>
     </div>
 
-    <!--移动端支持
+    <!--移动端支持-->
     <div id="main-nav-mobile" class="header-sub header-inner">
         <table class="menu outer">
             <tbody><tr>
 
-                <td><a class="main-nav-link" href="/">HOME</a></td>
-
-                <td><a class="main-nav-link" href="/popular">Popular</a></td>
-
-                <td><a class="main-nav-link" href="/about/me">About Me</a></td>
+                <td><a class="main-nav-link" href="/">主页</a></td>
+                <td><a class="main-nav-link" href="/about/me">关于我</a></td>
 
                 <!-- <td><a class="main-nav-link" href="/thymeleaf">thymeleaf翻译</a></td>-->
                 <!--
@@ -89,10 +93,11 @@
                                     <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
                                 </div>
 
-                            </td>
+                            </td>>-->
             </tr>
-            </tbody></table>
-    </div>-->
+            </tbody>
+        </table>
+    </div>
 
 </header>
 </body>

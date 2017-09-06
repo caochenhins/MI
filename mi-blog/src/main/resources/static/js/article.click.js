@@ -1,6 +1,3 @@
-/**
- * Created by eumji on 6/20/17.
- */
 var pager = {page:1,start:0,limit:10};
 /*将初始化页面封装成一个方法*/
 function initPage(id) {
@@ -13,8 +10,8 @@ function initPage(id) {
         totalCounts: pager.totalCount,
         visiblePages: 5,
         currentPage: pager.page,
-        prev: '<li class="prev"><a href="javascript:;">Previous</a></li>',
-        next: '<li class="next"><a href="javascript:;">Next</a></li>',
+        prev: '<li class="prev"><a href="javascript:;">上一页</a></li>',
+        next: '<li class="next"><a href="javascript:;">下一页</a></li>',
         page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
         onPageChange: function (num, type) {
             pager.page = num;
@@ -51,11 +48,11 @@ function  loadList(type,id) {
             //初始化文章
             /*分享初始化*/
             $(".socialShare").socialShare({
-                content: "EumJi在IT,生活,音乐方面的分享",
-                url:"www.eumji025.com/",
+                content: "文章分享",
+                url: "www.baidu.com/",
                 title:$("#article-title").text(),
-                summary:'Eumji个人博客分享,欢迎指教',
-                pic:'http://of8rkrh1w.bkt.clouddn.com/2017/4/21/touxiang.jpg'
+                summary: 'MIYAOW个人博客分享,欢迎指教',
+                pic: ''
             });
             $('#loader-wrapper .load_title').remove();
         }
@@ -65,21 +62,19 @@ function  loadList(type,id) {
 $("#main-article").on('click','.article-tag-link',function () {
     var tagId = $(this).data("id");
     window.location.href = '/tags/details/'+tagId;
-})
-
+});
 /*文章归档点击事件*/
 $(".archive-list-link").on('click',function () {
     var createTime = $(this).data("id");
     window.location.href = '/createTime/details/'+createTime;
-})
+});
 /*文章分类点击事件*/
 $(".type-list-link").on('click',function () {
     var categoryId = $(this).data("id");
     window.location.href = '/categories/details/'+categoryId;
-})
-
+});
 /*为动态元素绑定lick事件*/
 $("#main-article").on('click','.article-type-link',function () {
     var categoryId = $(this).data("id");
     window.location.href = '/categories/details/'+categoryId;
-})
+});
