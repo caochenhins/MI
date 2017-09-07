@@ -58,7 +58,8 @@ public class Tag extends Model<Tag> {
 	}
 
 	public void setTagName(String tagName) {
-		this.tagName = tagName;
+
+        this.tagName = tagName;
 	}
 
 	public String getAliasName() {

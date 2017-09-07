@@ -38,19 +38,9 @@
             <!--个人基础信息-->
             <div class="inner profile-inner" th:replace="blog/left/base-of-me :: base_of_me"></div>
 
-            <!--&lt;!&ndash;友情链接&ndash;&gt;-->
-            <!--<div class="inner profile-inner" th:replace="blog/left/friend-link :: friend_link"></div>-->
-
         </aside>
 
         <section id="main">
-
-            <!--<div id="loader-wrapper">-->
-            <!--<div id="loader"></div>-->
-            <!--<div class="loader-section section-left"></div>-->
-            <!--<div class="loader-section section-right"></div>-->
-            <!--<div class="load_title">正在加载EumJi站点....<br><span>V1.0</span></div>-->
-            <!--</div>-->
 
             <div id="main-article">
                 <article id="post-zuul-vs-nginx-performance" class="article article-type-post" itemscope="" itemprop="blogPost">
@@ -58,12 +48,9 @@
 
                     <header class="article-header">
 
-
                         <h1 class="article-title" itemprop="name">
                             <span id="article-title" th:text="${article.title}"></span>
                         </h1>
-
-
 
                         <div class="article-meta">
 
@@ -75,17 +62,10 @@
                             </div>
 
 
-                            <!--<div class="article-category" style="text-transform: none;">-->
-                            <!--<i class="fa fa-folder"></i>-->
-                            <!--&lt;!&ndash;th:hreftypegory/details/'+${articleList.categoryId}"&ndash;&gt;-->
-                            <!--<a class="article-category-link" href="javascript:void(0);" th:data-id="${article.categoryId}" th:text="${article.categoryName}" style="cursor: pointer"></a>-->
-                            <!--</div>-->
+                            <span id="busuanzi_container_page_pv" style="display: inline;">被偷窥 →_→
+                                <span id="busuanzi_value_page_pv" th:text="${article.lookCount}"></span> 次
+                            </span>
 
-                            <!--<div class="article-tag" style="text-transform: none;" th:each="tag : ${article.tagList}">-->
-                            <!--<i class="fa fa-tag"></i>-->
-                            <!--&lt;!&ndash;th:href="'/tag/details/'+${tagListStat.tagId}"&ndash;&gt;-->
-                            <!--<a class="article-tag-link" th:data-id="${tag.tagId}" th:text="${tag.tagName}" style="cursor: pointer"></a>-->
-                            <!--</div>-->
                         </div>
 
 

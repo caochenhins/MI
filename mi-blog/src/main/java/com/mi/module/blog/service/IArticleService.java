@@ -92,4 +92,11 @@ public interface IArticleService extends IService<Article> {
      * @return
      */
     Article getNextArticle(String articleId);
+
+    /**
+     * 增加文章阅读数量
+     *
+     * @param articleId
+     */
+    void addArticleCount(String articleId);
 }

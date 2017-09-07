@@ -67,22 +67,24 @@
        order by ba.create_time desc limit #{start},#{limit}
 	</select>
 	<!--通过文章id获取tag列表-->
-	<select id="getTag" resultType="com.mi.module.blog.entity.Tag">
+	<select id="getTag" resultType="com.mi.module.blog.entity.Tag" parameterType="String">
 		select
-			article_id as articleId,
-			tag_id as tagId,
-			tag_name as tagName
-		from blog_article_tag
-		where article_id = #{articleId}
+		bat.article_id as articleId,
+		bat.tag_id as tagId,
+		bt.tag_name as tagName
+		from blog_article_tag bat
+		LEFT JOIN blog_tag bt on bat.tag_id = bt.tag_id
+		where bat.article_id = #{articleId}
 	</select>
 	<!--通过文章id获取Type列表-->
 	<select id="getType" resultType="com.mi.module.blog.entity.Type">
 		select
-			article_id as articleId,
-			type_id as typeId,
-			type_name as typeName
-		from blog_article_type
-		where article_id = #{articleId}
+		bat.article_id as articleId,
+		bat.type_id as typeId,
+		bt.type_name as typeName
+		from blog_article_type bat
+		LEFT JOIN blog_type bt on bat.type_id = bt.type_id
+		where bat.article_id = #{articleId}
 	</select>
 
 	<!--获取文章的时间归档列表 -->
@@ -96,11 +98,16 @@
 		<if test="keyword != null and keyword != ''">
 			select article_id,title,description
 			from blog_article
-			where title like concat('%',#{keyword},'%') or description like concat('%',#{keyword},'%') or content like concat('%',#{keyword},'%') limit 0,10
+			where status = 1 and title like concat('%',#{keyword},'%') or description like concat('%',#{keyword},'%') or
+			content like concat('%',#{keyword},'%')
+			limit 0,10
+
 		</if>
 		<if test="keyword == null or keyword == ''">
 			select article_id,title,description
-			from blog_article limit 0,10
+			from blog_article
+			where status = 1
+			limit 0,10
 		</if>
 	</select>
 
@@ -128,7 +135,7 @@
 
 	<!--增加文章的阅读量-->
 	<update id="addArticleCount">
-		update blog_article set showCount = showCount+1 where article_id = #{articleId}
+		update blog_article set look_count = look_count+1 where article_id = #{articleId}
 	</update>
 
 

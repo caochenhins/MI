@@ -31,4 +31,6 @@ public interface ArticleMapper extends BaseMapper<Article> {
     Article getLastArticle(String articleId);
 
     Article getNextArticle(String articleId);
+
+    void addArticleCount(String articleId);
 }

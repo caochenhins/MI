@@ -1,3 +1,6 @@
+/**
+ * Code High by Miyaow Mi-Blog
+ */
 function shake() {
     function c() {
         var e = document.createElement("link");

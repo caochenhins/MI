@@ -101,6 +101,25 @@ td {
 a img {
   border: none;
 }
+
+.xwcms {
+  margin: 0 auto;
+  -webkit-border-radius: 110px;
+  border-radius: 110px;
+  -webkit-transition: -webkit-transform 0.2s ease-out;
+  -moz-transition: -moz-transform 0.2s ease-out;
+  -o-transition: -o-transform 0.2s ease-out;
+  -ms-transition: -ms-transform 0.2s ease-out;
+}
+
+.xwcms:hover {
+  -webkit-transform: rotateZ(180deg);
+  -moz-transform: rotateZ(180deg);
+  -o-transform: rotateZ(180deg);
+  -ms-transform: rotateZ(180deg);
+  transform: rotateZ(180deg);
+}
+
 input,
 button {
   margin: 0;
@@ -139,10 +158,10 @@ code {
   background-color: #f8f8f8;
 }
 .outer {
-    max-width: 1600px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 20px;
-    height: 65px;
+  height: 65px;
 }
 .outer:before,
 .outer:after {
@@ -196,7 +215,7 @@ code {
   #main {
     display: inline;
     float: left;
-      width: 67.6923076923077%;
+    width: 67.6923076923077%;
     margin: 0 0.769230769230769%;
   }
 }
@@ -234,13 +253,13 @@ code {
 .archive-article,
 .timeline-row .content,
 #toTop {
-  background: #fff;
+  background: rgba(235, 241, 243, 0.6);
   -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
 }
 .article-entry h1,
 .widget h1 {
-    font-size: 1.8em;
+  font-size: 1.8em;
 }
 .article-entry h2,
 .widget h2 {
@@ -645,8 +664,8 @@ code {
   }
 }
 #profile .inner {
-    margin-top: 20px;
-  background: #fff;
+  margin-top: 20px;
+  background: rgba(157, 184, 193, 0.12);
 }
 #profile .inner .base-info #avatar {
   display: block;
@@ -695,7 +714,7 @@ code {
   line-height: 40px;
   text-align: center;
   margin: 20px auto 10px;
-    background: #38b7ea;
+  background: #38b7ea;
   border-radius: 20px;
   -webkit-transition: 0.2s ease;
   -moz-transition: 0.2s ease;
@@ -712,7 +731,7 @@ code {
   line-height: 40px;
   text-align: center;
   margin: 20px auto 10px;
-    background: rgba(84, 121, 84, 0.65);
+  background: rgba(201, 216, 221, 0.83);
   border-radius: 20px;
   -webkit-transition: 0.2s ease;
   -moz-transition: 0.2s ease;
@@ -828,7 +847,7 @@ code {
   border-color: transparent transparent #dbdee1 transparent;
 }
 .article {
-    margin: 20px 0;
+  margin: 20px 0;
 }
 .article-inner {
   overflow: hidden;
@@ -845,7 +864,7 @@ code {
   margin-bottom: 14px;
 }
 .article-title {
-    font-size: 1.8em;
+  font-size: 1.8em;
   color: #009688;
   text-decoration: none;
   line-height: 1.3em;
@@ -912,7 +931,7 @@ a.article-title:hover {
 .article-entry p,
 .article-entry table {
   line-height: 1.6em;
-    margin: 1.6em 0;
+  margin: 1.6em 0;
 }
 .article-entry h1,
 .article-entry h2,
@@ -980,7 +999,7 @@ a.article-title:hover {
 .article-entry blockquote:before {
   top: 20px;
   left: 10px;
-    content: "\f10d";
+  content: "\f10d";
   color: #e2e2e2;
   font-size: 32px;
   font-family: FontAwesome;
@@ -993,7 +1012,6 @@ a.article-title:hover {
   font-family: "open sans", "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;
 }
 .article-entry blockquote footer cite:before {
-  content: "â€”";
   padding: 0 0.5em;
 }
 .article-entry .pullquote {
@@ -1034,7 +1052,7 @@ a.article-title:hover {
   margin-top: 0;
 }
 .article-more{
-    margin: 22px 20px auto 0;
+  margin: 0px 20px auto 0;
   float: right;
 }
 
@@ -1042,7 +1060,7 @@ a.article-title:hover {
 .article-more-link a {
   display: inline-block;
   line-height: 1em;
-    padding: 6px 15px;
+  padding: 6px 15px;
   border-radius: 15px;
   background: #f5f8f9;
   color: #999;
@@ -1059,8 +1077,8 @@ a.article-title:hover {
   font-size: 0.85em;
   line-height: 1.6em;
   border-top: 1px solid #eceff2;
-    padding-top: 1.6em;
-    margin: 0 20px 20px;
+  /* padding-top: 1.6em; */
+  margin: 0 10px 10px;
 }
 .article-footer:before,
 .article-footer:after {
@@ -1103,6 +1121,8 @@ a.article-title:hover {
 }
 .share-container {
   float: left;
+  margin-top: 20px;
+  margin-left: 10px;
 }
 .article-share-link {
   float: right;
@@ -1125,7 +1145,7 @@ a.article-title:hover {
 }
 @media screen and (min-width: 1200px) {
   #article-nav {
-      margin: 20px 0;
+    margin: 20px 0;
   }
   #article-nav:before {
     width: 8px;
@@ -1146,7 +1166,7 @@ a.article-title:hover {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-    margin-top: 20px;
+  margin-top: 20px;
   text-align: center;
   display: block;
 }
@@ -1395,7 +1415,7 @@ ol.toc {
 }
 #comments {
   padding: 20px;
-    margin: 20px 0;
+  margin: 20px 0;
 }
 #comments a {
   color: #38b7ea;
@@ -1416,7 +1436,7 @@ ol.toc {
 .archive-tag-wrap,
 .layout-title {
   font-size: 1.4em;
-    margin: 20px 0 20px 0;
+  margin: 20px 0 20px 0;
 }
 @media screen and (max-width: 559px) {
   .archive-year-wrap,
@@ -1517,7 +1537,7 @@ ol.toc {
   background-position: center;
 }
 .archive-article .archive-article-thumbnail .thumbnail .thumbnail-none {
-    background-image: url("images/thumb-default-small.png");
+  background-image: url("images/thumb-default-small.png");
 }
 .archive-article-title {
   display: block;
@@ -1582,7 +1602,7 @@ ol.toc {
   content: '#';
 }
 #page-nav {
-    margin: 20px auto;
+  margin: 20px auto;
   text-align: center;
   color: #999;
   overflow: hidden;
@@ -1794,11 +1814,11 @@ ol.toc {
   margin-right: 5px;
 }
 .widget-wrap {
-    margin: 20px 10px;
+  margin: 20px 10px;
 }
 @media screen and (max-width: 559px) {
   .widget-wrap {
-      margin: 20px 20px;
+    margin: 20px 20px;
   }
 }
 .widget-title {
@@ -2286,7 +2306,8 @@ ol.toc {
   background-color: #f8f8f8;
 }
 
-@media screen and (max-width: 768px) { /*当屏幕尺寸小于768px时，应用下面的CSS样式*/
+@media screen and (max-width: 768px) {
+  /*当屏幕尺寸小于768px时，应用下面的CSS样式*/
   .foot-col {
     width: 100%;
   }

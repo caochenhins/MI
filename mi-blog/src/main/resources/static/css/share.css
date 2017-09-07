@@ -8,6 +8,7 @@
     height: 54px;
     position: relative;
     z-index: 1;
+    float: right;
 }
 .socialShare .msb_main {
     display: block;

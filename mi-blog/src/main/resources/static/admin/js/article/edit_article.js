@@ -2,7 +2,7 @@ var testEditor;
 
 $(function () {
     testEditor = editormd("article-editormd", {
-        width: "90%",
+        width: "98%",
         height: $(window).height()-20,
         path : '/admin/lib/',
         codeFold : true,

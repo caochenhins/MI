@@ -8,7 +8,7 @@
     function init(target, options) {
         var settings = $.extend({}, $.fn.socialShare.defaults, options);
 		//初始化各个组件
-        var $msb_main =$msb_main = "<a class='msb_main'><img title='分享' src='/image/share_core_square.jpg'></a>";
+        var $msb_main = $msb_main = "<a class='msb_main'><img title='分享' src='/image/share_core_square.jpg' class='xwcms'></a>";
         var $social_group = "<div class='social_group'>"
 		+ "<a target='_blank' class='msb_network_button weixin'>weixin</a>"
 		+ "<a target='_blank' class='msb_network_button sina'>sina</a>"
@@ -61,8 +61,8 @@
                     e()
                 });
                 $(this).parent().find(".msb_network_button").each(function() {
-                    var n = p + (p + i * o) * Math.cos(v);  //结束位置
-                    var r = d + (d + i * o) * Math.sin(v);  //结束位置
+                    var n = -(p + (p + i * o) * Math.cos(v));  //结束位置
+                    var r = -(d + (d + i * o) * Math.sin(v));  //结束位置
                     $(this).css({
                         display: "block",
                         left: p + "px",
@@ -192,7 +192,6 @@
 	//分享地址
 	var qzone = 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={url}&title={title}&pics={pic}&summary={summary}';
 	var sina = 'http://service.weibo.com/share/share.php?url={url}&title={title}&pic={pic}&searchPic=false';
-	//var tqq = 'http://share.v.t.qq.com/index.php?c=share&a=index&url={url}&title={title}&appkey=801cf76d3cfc44ada52ec13114e84a96';
 	var tqq = 'http://connect.qq.com/widget/shareqq/tagCloud.html?url={url}&title={title}&source={source}&desc={content}&pics={pic}&summary={summary}';
 	var douban = 'http://www.douban.com/share/service?href={url}&name={title}&text={content}&image={pic}';
 	var weixin = 'http://qr.liantu.com/api.php?text={url}';
@@ -205,9 +204,9 @@ function loadShareInfo(target) {
 	var parent = $(target).parents(".socialShare");
 	var result = {
         content: $(parent).data("content"),
-        url:"www.eumji025.com"+$(parent).data("url"),
+        url: "www.miterm.com" + $(parent).data("url"),
         title:$(parent).data("title"),
-        summary:$(parent).data("desc") != null?$(parent).data("desc"):'Eumji个人博客分享,欢迎指教',
+        summary: $(parent).data("desc") != null ? $(parent).data("desc") : 'MIYAOW个人博客分享,欢迎指教',
         pic:'http://of8rkrh1w.bkt.clouddn.com/2017/4/21/touxiang.jpg'
 	};
 	return result;

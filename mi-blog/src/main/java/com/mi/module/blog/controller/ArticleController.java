@@ -100,9 +100,8 @@ public class ArticleController {
         Article nextArticle = iArticleService.getNextArticle(articleId);
         model.addAttribute("nextArticle", nextArticle);
 
-
-        //        //增加浏览量
-//        articleService.addArticleCount(articleId);
+        //增加浏览量
+        iArticleService.addArticleCount(articleId);
 
         return "blog/article";
     }

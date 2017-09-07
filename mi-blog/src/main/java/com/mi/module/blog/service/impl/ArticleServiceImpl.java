@@ -133,5 +133,10 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         return articleMapper.getNextArticle(articleId);
     }
 
+    @Override
+    public void addArticleCount(String articleId) {
+        articleMapper.addArticleCount(articleId);
+    }
+
 
 }
