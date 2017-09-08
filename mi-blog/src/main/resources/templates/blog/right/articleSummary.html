@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="zh">
+<head th:replace="blog/part/head :: head"></head>
+
 <article th:each="article : ${articleList}"
          th:id="'/article/details/'+${article.articleId}"
          class="article article-type-post"
@@ -22,7 +24,7 @@
                     <!--class="label label-success" -->
 
                     <i class="fa fa-calendar"></i>
-                    <a th:href="'/article/details/'+${article.articleId}">
+                    <a>
                         <time datetime="2017-04-03" itemprop="datePublished" th:text="${#dates.format(article.createTime,'yyyy-MM-dd')}"></time>
                     </a>
                 </div>

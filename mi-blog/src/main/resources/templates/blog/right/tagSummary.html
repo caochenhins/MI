@@ -19,7 +19,7 @@
 
                     <div class="article-date">
                         <i class="fa fa-calendar"></i>
-                        <a th:href="'/article/details/'+${article.id}">
+                        <a th:href="'/article/details/'+${article.articleId}">
                             <time datetime="2017-04-03" itemprop="datePublished" th:text="${#dates.format(article.createTime,'yyyy-MM-dd')}"></time>
                         </a>
                     </div>

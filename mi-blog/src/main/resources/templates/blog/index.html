@@ -3,6 +3,7 @@
 <head th:replace="blog/part/head :: head"></head>
 <head>
     <link rel="stylesheet" type="text/css" href="/css/load.css">
+
 </head>
 <body>
 <!--<div class="loader"></div>-->
@@ -27,12 +28,10 @@
                 <!--<div class="load_title">正在努力加载站点....<br><span>V1.0</span></div>-->
             <!--</div>-->
 
-            <iframe name="indexFrame" id="indexFrame" frameborder="0"
+            <iframe name="indexFrame" id="indexFrame" frameborder="0" onLoad="iFrameHeight()"
                     src="/main"
-                    style="margin:0 auto;width:100%;min-height: 800px;">
+                    style="margin:0 auto;width:100%; min-height: 800px;" scrolling="no">
             </iframe>
-
-
 
         </section>
 
@@ -50,10 +49,10 @@
             <div id="toTop" class="fa fa-angle-up"></div>
         </aside>
     </div>
-    <footer id="footer" th:replace="blog/part/footer :: footer"></footer>
 
 
 </div>
+<footer id="footer" th:replace="blog/part/footer :: footer"></footer>
 
 <script src="/js/jquery.min.js"></script>
 
@@ -62,26 +61,22 @@
 <script src="/js/lightgallery.min.js"></script>
 
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 <script src="/admin/js/plugins/chosen/chosen.jquery.js"></script>
 
 
-<!-- 解决iframe自适应问题 -->
-<script type="text/javascript">
-    var result;
-    function autoIFrame() {
-        var iFrame = document.getElementById("indexFrame");
-//        var bHeight = iFrame.contentWindow.document.body.scrollHeight;
-        var dHeight = iFrame.contentWindow.document.documentElement.scrollHeight;
-        var height = Math.max(dHeight);
-        if (height <= iFrame.height) {  //满足就移除周期命令
-            window.clearInterval(result);
-        } else {
-            iFrame.height = height;
+<!-- 解决iFrame自适应问题 -->
+<script type="text/javascript" language="javascript">
+    function iFrameHeight() {
+        var ifm = document.getElementById("indexFrame");
+        ifm.height = 800;//初始值
+        var subWeb = document.frames ? document.frames["indexFrame"].document :
+            ifm.contentDocument;
+        if (ifm != null && subWeb != null) {
+            ifm.height = subWeb.body.scrollHeight;
         }
     }
-    result = window.setInterval("autoIFrame()", 1000);//1s内少于可能出现加载失败
 </script>
-
 
 </body>
 </html>

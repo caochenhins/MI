@@ -723,7 +723,7 @@ code {
 }
 
 .follow {
-  color: #fff;
+    /*color: #fff;*/
   width: auto;
   height: 40px;
   display: block;
@@ -1733,10 +1733,10 @@ ol.toc {
   line-height: 30px;
 }
 #footer {
-  padding: 20px 0;
-  border-top: 1px solid #eceff2;
-  color: #565a5f;
-  font-size: 18px;
+    /* padding: 20px 0; */
+    /* border-top: 1px solid #eceff2; */
+    /* color: #565a5f; */
+    /* font-size: 18px; */
   text-align: center;
 }
 #footer .outer {
@@ -2303,7 +2303,7 @@ ol.toc {
   color: #888;
 }
 #footer {
-  background-color: #f8f8f8;
+    background-color: rgba(183, 67, 67, 0);
 }
 
 @media screen and (max-width: 768px) {
