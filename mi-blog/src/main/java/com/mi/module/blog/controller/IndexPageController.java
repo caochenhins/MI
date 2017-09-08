@@ -3,8 +3,11 @@ package com.mi.module.blog.controller;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.mi.data.vo.ArticleVo;
 import com.mi.data.vo.Pager;
+import com.mi.data.vo.TagCloudVo;
+import com.mi.data.vo.TypeVo;
 import com.mi.module.blog.entity.Article;
 import com.mi.module.blog.entity.Friendlink;
+import com.mi.module.blog.entity.Tag;
 import com.mi.module.blog.entity.UserInfo;
 import com.mi.module.blog.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,33 +16,39 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import java.util.*;
 
 /**
- * 文章; InnoDB free: 11264 kB 控制器
+ * 页面路由控制器 - 展示主页
  *
  * @author yesh
  *         (M.M)!
- *         Created by 2017-07-09.
+ *         Created by 2017/7/9.
  */
 @Controller
-@RequestMapping("/article")
-public class ArticleController {
+public class IndexPageController {
+    @Autowired
+    private IUserInfoService iUserInfoService;
+    @Autowired
+    private IFriendlinkService iFriendlinkService;
+    @Autowired
+    private IArticleService iArticleService;
+    @Autowired
+    private ITagService iTagService;
+    @Autowired
+    private ITypeService iTypeService;
 
-    @Autowired
-    IArticleService iArticleService;
-    @Autowired
-    IFriendlinkService iFriendlinkService;
-    @Autowired
-    ITypeService iTypeService;
-    @Autowired
-    ITagService iTagService;
-    @Autowired
-    IUserInfoService iUserInfoService;
+
+    /**
+     * 加载文章
+     **/
+    @RequestMapping("/main")
+    public String main(Model model) {
+        return "blog/main";
+    }
+
 
     /**
      * 加载分页列表数据
@@ -47,11 +56,21 @@ public class ArticleController {
      * @param model
      * @return
      */
-    @RequestMapping("/load")
+    @RequestMapping("/article/load")
     public String loadArticle(Pager<Article> pager, Model model) {
         List<ArticleVo> articleList = iArticleService.selectArticleList(pager);
         model.addAttribute("articleList", articleList);
         return "blog/right/articleSummary";
+    }
+
+    /**
+     * 初始化主页分页信息
+     **/
+    @RequestMapping("/home/articles/load")
+    @ResponseBody
+    public Pager loadArticlePager(Pager pager) {
+        iArticleService.initPage(pager);
+        return pager;
     }
 
 
@@ -64,7 +83,7 @@ public class ArticleController {
      *
      * @return
      */
-    @RequestMapping("/details/{articleId}")
+    @RequestMapping("/article/details/{articleId}")
     public String loadArticle(@PathVariable String articleId, Model model) {
         //当前文章的所有信息
         //后期参数定义 做成多博客系统
@@ -106,22 +125,5 @@ public class ArticleController {
         return "blog/article";
     }
 
-
-    /**
-     * 全局搜索
-     *
-     * @param keyword 关键字
-     * @param model
-     * @return
-     */
-    @RequestMapping("/content/search")
-    public String search(@RequestParam(value = "keyword", required = false) String keyword, Model model) {
-        System.err.println("" + keyword);
-        Map<String, Object> paramMap = new HashMap<>();
-        paramMap.put("keyword", keyword);
-        List<Article> articleList = iArticleService.selectArticleListByKeywords(paramMap);
-        model.addAttribute("articleList", articleList);
-        return "blog/part/search-info";
-    }
 
 }

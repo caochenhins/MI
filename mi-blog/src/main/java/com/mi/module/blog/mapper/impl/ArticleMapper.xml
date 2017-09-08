@@ -120,7 +120,7 @@
 	<!--获取上一篇文章信息  大于当前时间且最靠近当前时间的第一篇 -->
 	<select id="getLastArticle" resultType="com.mi.module.blog.entity.Article">
 		select article_id as articleId,title from blog_article
-		where create_time &gt; (select create_time from blog_article where article_id = #{articleId})
+		where create_time &lt; (select create_time from blog_article where article_id = #{articleId})
 		and status = 1
 		ORDER BY create_time asc LIMIT 1
 	</select>
@@ -128,7 +128,7 @@
 	<!--获取下一篇文章信息 小于当前时间且最靠近当前时间的第一篇-->
 	<select id="getNextArticle" resultType="com.mi.module.blog.entity.Article">
 		select article_id as articleId,title from blog_article
-		where create_time &lt; (select create_time from blog_article where article_id = #{articleId})
+		where create_time &gt; (select create_time from blog_article where article_id = #{articleId})
 		and status = 1
 		ORDER BY create_time desc LIMIT 1
 	</select>
@@ -138,5 +138,16 @@
 		update blog_article set look_count = look_count+1 where article_id = #{articleId}
 	</update>
 
+
+	<!--通过分类获取所有的文章-->
+	<select id="selectArticleByType">
+		select ba.*
+		from blog_article ba
+		LEFT JOIN blog_article_type  bat ON ba.article_id =  bat.article_id
+		where ba.status = 1
+		and bat.type_id = #{typeId}
+		ORDER BY ba.create_time
+		limit #{pager.start},#{pager.limit}
+	</select>
 
 </mapper>

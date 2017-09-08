@@ -1,9 +1,11 @@
 package com.mi.module.blog.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.mi.data.vo.ArticleVo;
 import com.mi.data.vo.Pager;
 import com.mi.data.vo.TypeVo;
 import com.mi.module.blog.entity.Type;
+import com.mi.module.blog.mapper.ArticleMapper;
 import com.mi.module.blog.mapper.TypeMapper;
 import com.mi.module.blog.service.ITypeService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
@@ -25,6 +27,10 @@ public class TypeServiceImpl extends ServiceImpl<TypeMapper, Type> implements IT
 
     @Resource
     private TypeMapper typeMapper;
+
+    @Resource
+    private ArticleMapper articleMapper;
+
 
     @Override
     public void initPage(Pager pager) {
@@ -51,5 +57,11 @@ public class TypeServiceImpl extends ServiceImpl<TypeMapper, Type> implements IT
     @Override
     public List<TypeVo> initTypeList() {
         return typeMapper.initTypeList();
+    }
+
+    @Override
+    public List<ArticleVo> selectArticleByType(Pager pager, String typeId) {
+        pager.getStart();
+        return articleMapper.selectArticleByType(pager, typeId);
     }
 }

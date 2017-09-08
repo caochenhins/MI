@@ -1,5 +1,6 @@
 package com.mi.module.blog.mapper;
 
+import com.mi.data.vo.ArticleVo;
 import com.mi.data.vo.Pager;
 import com.mi.data.vo.TypeVo;
 import com.mi.module.blog.entity.Type;
@@ -23,4 +24,5 @@ public interface TypeMapper extends BaseMapper<Type> {
     int checkExist(Type type);
 
     List<TypeVo> initTypeList();
+
 }

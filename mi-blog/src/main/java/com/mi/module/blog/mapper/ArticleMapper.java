@@ -4,6 +4,7 @@ import com.mi.data.vo.ArticleVo;
 import com.mi.data.vo.Pager;
 import com.mi.module.blog.entity.Article;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -33,4 +34,6 @@ public interface ArticleMapper extends BaseMapper<Article> {
     Article getNextArticle(String articleId);
 
     void addArticleCount(String articleId);
+
+    List<ArticleVo> selectArticleByType(@Param("pager") Pager pager, @Param("typeId") String typeId);
 }
