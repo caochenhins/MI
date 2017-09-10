@@ -38,13 +38,12 @@ public class IndexPageController {
 
 
     /**
-     * 加载文章
+     * 加载首页文章
      **/
     @RequestMapping("/main")
     public String main(Model model) {
         return "blog/main";
     }
-
 
     /**
      * 加载分页列表数据
@@ -52,7 +51,7 @@ public class IndexPageController {
      * @param model
      * @return
      */
-    @RequestMapping("/article/load")
+    @RequestMapping("/article")
     public String loadArticle(Pager<Article> pager, Model model) {
         List<ArticleVo> articleList = iArticleService.selectArticleList(pager);
         model.addAttribute("articleList", articleList);
@@ -60,18 +59,7 @@ public class IndexPageController {
     }
 
     /**
-     * 初始化主页分页信息
-     **/
-    @RequestMapping("/home/articles/load")
-    @ResponseBody
-    public Pager loadArticlePager(Pager pager) {
-        iArticleService.initPage(pager);
-        return pager;
-    }
-
-
-    /**
-     * 加载文章
+     * 加载文章详细
      * 包括总标签数
      * 总文章数量
      * 分类及每个分类文章数量

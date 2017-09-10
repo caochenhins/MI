@@ -10,8 +10,8 @@
 <body class="login" mycollectionplug="bind">
 <div class="login_m">
     <div class="login_logo">
-        <!--<img src="/image/eumji.png" width="196" height="46">-->
-        <span>Admin Login</span>
+        <img src="/image/j.png" href="/" width="40" height="40">
+        <span>MI - Blog 后台管理</span>
     </div>
     <!--
     <div id="error-container">
@@ -27,29 +27,34 @@
         <form method="post" action="/login">
         <div class="login_padding" id="login_model">
 
-            <h2>USERNAME</h2>
+            <h2>用户名：</h2>
             <label>
                 <input type="text" value="miyaow" id="username" name="username"  class="txt_input txt_input2"
                        placeholder="请输入用户名" required>
             </label>
-            <h2>PASSWORD</h2>
+            <h2>密 码：</h2>
             <label>
                 <input type="password" value="123" name="password" id="password" class="txt_input" placeholder="请输入密码" required>
             </label>
 
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox"> 请记住我
+                </label>
 
-            <p class="forgot"><a id="iforget" href="#">Forgot your password?</a></p>
+                <p class="forgot" style="float: right;"><a id="iforget" href="#">忘记密码?</a></p>
+            </div>
+
+
             <div class="rem_sub">
-              <!--  <div class="rem_sub_l">
-                    <label for="checkbox">Remember me</label>
-                    <input id="checkbox" type="checkbox" name="checkbox" id="save_me">
-                </div>-->
                 <label>
                     <div class="rem_sub_l">
                         <input type="submit" class="sub_button" name="button" id="login-button" value="Sign In">
                     </div>
                 </label>
             </div>
+
+
         </div>
 
         </form>
@@ -58,14 +63,13 @@
 
             <h1>Forgot password</h1>
             <br>
-            <div class="forget_model_h2">(Please enter your registered email below and the system will automatically
+            <div class="forget_model_h2">
+                (Please enter your registered email below and the system will automatically
                 reset users’ password and send it to user’s registered email address.)
             </div>
             <label>
                 <input type="text" id="usrmail" class="txt_input txt_input2">
             </label>
-
-
             <div class="rem_sub">
                     <input type="submit" class="forget_button" name="button" id="Retrievenow" value="Retrieve Now" style="float:left">
                     <input type="submit" class="forget_button" name="button" id="denglou" value="Return">　　
@@ -73,6 +77,7 @@
         </div>
     </div>
 </div>
+
 <script type="text/javascript" src="/js/jquery.min.js"></script>
 <script type="text/javascript" src="/js/login.js"></script>
 

@@ -4,8 +4,6 @@
 * This is a demo of jQuery and a bit of fun javaScript - released under creative commons
 * IE fixes for previous versions by Krzysztof Finowicki
 */
-
-
 var de;
 var w;
 var h;

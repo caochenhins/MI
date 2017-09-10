@@ -22,6 +22,7 @@
  - Bootstrap
  - Thymeleaf
  - Editor.md
+ - jqPaginator
 
 ### V1.0 releases
 
@@ -42,7 +43,6 @@
 ## License
 
 The mi-blog is released under version 2.0 of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0).
-
 
 
 - 更新 `README.md` 等相关文档和示例；
