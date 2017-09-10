@@ -1,7 +1,6 @@
 var pager = {page:1,start:0,limit:10};
 /*将初始化页面封装成一个方法*/
 function initPage(id) {
-
     $("#total-num").text(pager.totalCount);
     $("#total-page").text(pager.totalPageNum);
     $("#current-page").text(pager.page);
@@ -58,23 +57,3 @@ function  loadList(type,id) {
         }
     });
 }
-
-$("#main-article").on('click','.article-tag-link',function () {
-    var tagId = $(this).data("id");
-    window.location.href = '/tags/details/'+tagId;
-});
-/*文章归档点击事件*/
-$(".archive-list-link").on('click',function () {
-    var createTime = $(this).data("id");
-    window.location.href = '/createTime/details/'+createTime;
-});
-/*文章分类点击事件*/
-$(".type-list-link").on('click',function () {
-    var categoryId = $(this).data("id");
-    window.location.href = '/categories/details/'+categoryId;
-});
-/*为动态元素绑定lick事件*/
-$("#main-article").on('click','.article-type-link',function () {
-    var categoryId = $(this).data("id");
-    window.location.href = '/categories/details/'+categoryId;
-});

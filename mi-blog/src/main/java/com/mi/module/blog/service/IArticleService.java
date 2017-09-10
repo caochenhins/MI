@@ -101,4 +101,5 @@ public interface IArticleService extends IService<Article> {
     void addArticleCount(String articleId);
 
 
+    List<ArticleVo> selectArticleByType(Pager pager, String typeId);
 }

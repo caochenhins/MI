@@ -3,11 +3,8 @@ package com.mi.module.blog.controller;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.mi.data.vo.ArticleVo;
 import com.mi.data.vo.Pager;
-import com.mi.data.vo.TagCloudVo;
-import com.mi.data.vo.TypeVo;
 import com.mi.module.blog.entity.Article;
 import com.mi.module.blog.entity.Friendlink;
-import com.mi.module.blog.entity.Tag;
 import com.mi.module.blog.entity.UserInfo;
 import com.mi.module.blog.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +12,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.*;
@@ -124,6 +120,29 @@ public class IndexPageController {
 
         return "blog/article";
     }
+
+
+    /**
+     * 获取某个类别标签的分页文章
+     *
+     * @param model
+     * @param pager
+     * @param typeId
+     * @return
+     */
+    @RequestMapping("/type/list/{typeId}")
+    public String loadArticleByCategory(Model model, Pager pager, @PathVariable String typeId) {
+
+        model.addAttribute("typeId", typeId);
+        List<ArticleVo> articleList = iArticleService.selectArticleByType(pager, typeId);
+        if (!articleList.isEmpty()) {
+            model.addAttribute("articleList", articleList);
+            model.addAttribute("pager", pager);
+            model.addAttribute("typeName", articleList.get(0).getTypeList().get(0).getTypeName());
+        }
+        return "blog/type";
+    }
+
 
 
 }

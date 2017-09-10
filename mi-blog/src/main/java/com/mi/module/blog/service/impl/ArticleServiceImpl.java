@@ -138,5 +138,11 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         articleMapper.addArticleCount(articleId);
     }
 
+    @Override
+    public List<ArticleVo> selectArticleByType(Pager pager, String typeId) {
+        pager.getStart();
+        return articleMapper.selectArticleByType(pager, typeId);
+    }
+
 
 }

@@ -140,7 +140,7 @@
 
 
 	<!--通过分类获取所有的文章-->
-	<select id="selectArticleByType">
+	<select id="selectArticleByType" resultMap="article">
 		select ba.*
 		from blog_article ba
 		LEFT JOIN blog_article_type  bat ON ba.article_id =  bat.article_id

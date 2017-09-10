@@ -36,4 +36,5 @@ public interface ArticleMapper extends BaseMapper<Article> {
     void addArticleCount(String articleId);
 
     List<ArticleVo> selectArticleByType(@Param("pager") Pager pager, @Param("typeId") String typeId);
+
 }
