@@ -71,6 +71,8 @@
 ----|------|----
 Editor.md | Markdown编辑器  | [https://github.com/pandao/editor.md](https://github.com/pandao/editor.md)
 Select2 | 选择框插件  | [https://github.com/select2/select2](https://github.com/select2/select2)
+jqPaginator | jQuery分页组件  | [http://jqpaginator.keenwon.com/](http://jqpaginator.keenwon.com/)
+
 
 #### 后端技术
 技术 | 名称 | 官网
