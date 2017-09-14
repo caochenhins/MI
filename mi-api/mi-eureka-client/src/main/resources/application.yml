@@ -1,24 +1,3 @@
-server:
-  port: 2001
 spring:
-  application:
-    name: MI-EUREKA-CLIENT
-  aop:
-    auto: true # 开启AOP功能
-  boot:
-     admin:
-      url: http://localhost:1000  # 应用服务监控
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:2000/eureka/  # http://mitwo:2000/eureka/
-  instance:
-    status-page-url: http://localhost:${server.port}/swagger-ui.html # ${server.port}为该服务的端口号
-
-
-# 服务提供中心 Map <Key String>
-info:
-  artifact : mi-eureka-client
-  name: ${spring.application.name}
-  description: 服务提供中心
-  version : V1.0
+   profiles:
+     active: dev

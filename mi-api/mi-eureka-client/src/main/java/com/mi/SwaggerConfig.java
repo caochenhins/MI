@@ -6,6 +6,7 @@ import com.mi.common.swagger.BaseSwaggerConfig;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.MediaType;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -27,6 +28,7 @@ import java.util.Collections;
  */
 @Configuration
 @EnableSwagger2
+@Profile({"pro"})  //区别生成环境和产品环境
 public class SwaggerConfig extends BaseSwaggerConfig {
 
 //    @Value("${server.port}")

@@ -30,13 +30,28 @@ public class TestController {
         u.setId(user.getId());
         return u;
     }
+
+    @ApiOperation(value = "TEST接口简介2", notes = "接口详细描述2")
+    @RequestMapping(value = "helloTest", method = RequestMethod.GET)
+    public UserRes hello1(@RequestBody User user) {
+        UserRes u = new UserRes();
+        u.setId(user.getId());
+        return u;
+    }
 }
 
+/**
+ *
+ *
+ */
 @ApiModel(value = "User//参数实体")
 class User {
 
     @ApiModelProperty(value = "主键")
-    private int id;
+    /**
+     * 主键
+     */
+    private int id; //主键
     @ApiModelProperty(value = "姓名")
     private int name;
 
