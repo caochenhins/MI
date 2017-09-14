@@ -4,10 +4,8 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 服务提供控制器
@@ -15,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  *         (M.M)!
  *         Created by 2017/5/2.
  */
-@RestController
+@Controller
 public class ClientController {
 
     private final Logger log = Logger.getLogger(ClientController.class);
@@ -27,7 +25,8 @@ public class ClientController {
         this.discoveryClient = discoveryClient;
     }
 
-    @RequestMapping("/hi")
+    @ResponseBody
+    @RequestMapping(value = "hi", method = RequestMethod.GET)
     public String hello1(@RequestParam String name){
         System.err.println("-----------------------------");
         ServiceInstance instance = discoveryClient.getInstances("mi-eureka-client").get(0);

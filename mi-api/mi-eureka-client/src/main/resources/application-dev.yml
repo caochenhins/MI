@@ -22,3 +22,36 @@ info:
   name: ${spring.application.name}
   description: 服务提供中心
   version : V1.0
+
+
+swagger:
+  docket:
+    pro:
+     title: spring-boot-starter-swagger
+     description: Starter for swagger 2.x
+     version: 1.1.0.RELEASE
+     license: Apache License, Version 2.0
+     licenseUrl: https://www.apache.org/licenses/LICENSE-2.0.html
+     termsOfServiceUrl: https://github.com/dyc87112/spring-boot-starter-swagger
+     contact:
+       name: MIYAOW
+       url: http://blog.csdn.net/fjnpysh
+       email: dyc87112@qq.com
+     base-package: com.mi.controller
+     base-path: /**
+     exclude-path: /error,/ops/**
+
+    dev:
+     title: spring-boot-starter-swagger
+     description: Starter for swagger 2.x
+     version: 1.1.0.RELEASE
+     license: Apache License, Version 2.0
+     licenseUrl: https://www.apache.org/licenses/LICENSE-2.0.html
+     termsOfServiceUrl: https://github.com/dyc87112/spring-boot-starter-swagger
+     contact:
+       name: MIYAOW2
+       url: http://blog.csdn.net/fjnpysh
+       email: dyc87112@qq.com
+     base-package: com.mi.controller
+     base-path: /**
+     exclude-path: /error,/ops/**

@@ -5,10 +5,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Swagger 控制器案例模版
@@ -19,12 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Api(description = "测试用例控制器")
 @Pro
-@RestController
+@Controller
 @RequestMapping("/swagger")
 public class TestController {
 
     @ApiOperation(value = "TEST接口简介", notes = "接口详细描述")
     @RequestMapping(value = "helloTest", method = RequestMethod.POST)
+    @ResponseBody
     public UserRes hello(@RequestBody User user) {
         UserRes u = new UserRes();
         u.setId(user.getId());
@@ -33,6 +32,7 @@ public class TestController {
 
     @ApiOperation(value = "TEST接口简介2", notes = "接口详细描述2")
     @RequestMapping(value = "helloTest", method = RequestMethod.GET)
+    @ResponseBody
     public UserRes hello1(@RequestBody User user) {
         UserRes u = new UserRes();
         u.setId(user.getId());

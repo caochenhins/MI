@@ -139,7 +139,7 @@
 
         <div id="links" th:each="tag : ${tagList}">
 
-            <a target="_blank" th:href="${tag.position}" th:text="${tag.tagName}"></a>
+            <a target="indexFrame" th:href="'/tag/list/'+${tag.tagId}+'/'+${tag.position}" th:text="${tag.tagName}"></a>
 
             <!--<a href="e?x=370&y=303&z=0">far</a>-->
             <!--<a href="f?x=-370&y=3&z=0">out</a>-->

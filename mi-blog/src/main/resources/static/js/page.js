@@ -1,16 +1,15 @@
-var pager = {page: 1, start: 0, limit: 10};
-
+var pager;
 /*将初始化页面封装成一个方法*/
 function initPage(id) {
     $("#total-num").text(pager.totalCount);
     $("#total-page").text(pager.totalPageNum);
     $("#current-page").text(pager.page);
     $.jqPaginator('#pagination', {
-        totalPages: 10,  //设置分页的总页数
-        totalCounts: 100, //设置分页的总条目数
+        totalPages: pager.totalPageNum,  //设置分页的总页数
+        totalCounts: pager.totalCount, //设置分页的总条目数
         visiblePages: 3, //设置最多显示的页码数
-        currentPage: 1, //设置当前的页码
-        pageSize: 2,
+        currentPage: pager.page, //设置当前的页码
+        pageSize: pager.limit,
         first: '<li class="first"><a href="javascript:;">首页</a></li>',
         prev: '<li class="prev"><a href="javascript:;">上一页</a></li>',
         next: '<li class="next"><a href="javascript:;">下一页</a></li>',
@@ -46,6 +45,17 @@ function loadList(type, id) {
         data: pager,
         success: function (data) {
             $("#main-article").html(data);
+            //初始化文章分页信息
+            //初始化文章
+            /*分享初始化*/
+            $(".socialShare").socialShare({
+                content: "EumJi在IT,生活,音乐方面的分享",
+                url: "www.eumji025.com/",
+                title: $("#article-title").text(),
+                summary: 'Eumji个人博客分享,欢迎指教',
+                pic: 'http://of8rkrh1w.bkt.clouddn.com/2017/4/21/touxiang.jpg'
+            });
+            $('#loader-wrapper .load_title').remove();
         }
     });
 }
