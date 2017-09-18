@@ -19,9 +19,9 @@
 
                 <div class="article-date">
 
-                    <span class="label label-success"
-                          style="float: left;padding: 3px 5px 3px 5px;margin: 7px;">原创</span>
-                    <!--class="label label-success" -->
+                    <span th:classappend="${article.classType}==0?'label label-success':'label label-warning'"
+                          style="float: left;padding: 3px 5px 3px 5px;margin: 7px;"
+                          th:text="${article.classType==0?'原创':'转载'}"></span>
 
                     <i class="fa fa-calendar"></i>
                     <a>

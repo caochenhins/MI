@@ -33,6 +33,7 @@
 		  t1.type_id as typeId,
 		  t1.type_name as typeName,
 		  t1.alias_name as aliasName,
+        t1.sort,
 		  t2.articleCount
 		  FROM
 			 blog_type t1
@@ -52,7 +53,7 @@
 									bt.type_id
 
 			) t2 ON t1.type_id = t2.type_id
-		  ORDER BY  t2.articleCount desc
+        ORDER BY t1.sort,t2.articleCount desc
 	</select>
 
 

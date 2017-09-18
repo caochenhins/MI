@@ -40,6 +40,10 @@ public class ArticleVo implements Serializable {
      */
     private Integer status;
     /**
+     * 状态 0：原创  1：装载
+     */
+    private Integer classType;
+    /**
      * 作者
      */
     private String author;

@@ -53,35 +53,6 @@ public class MenuController {
     }
 
     /**
-     * 标签云
-     **/
-    @RequestMapping("/tag/cloud")
-    public String tagCloud(Model model) {
-
-        List<Tag> tagList = iTagService.selectList(null);
-
-        //参数所需
-        List<TagCloudVo> mapList = new ArrayList<>();
-
-        for (Tag t : tagList) {
-            TagCloudVo tv = new TagCloudVo();
-            Random random = new Random();
-
-            tv.setTagId(t.getTagId());
-            tv.setTagName(t.getTagName());
-            tv.setPosition("?x=" + getRandomNum(-300, 300)
-                    + "&y=" + getRandomNum(-300, 300)
-                    + "&z=" + getRandomNum(-300, 300));
-
-            mapList.add(tv);
-        }
-
-        model.addAttribute("tagList", mapList);
-
-        return "blog/cloud/tagCloud";
-    }
-
-    /**
      * 关于我
      **/
     @RequestMapping("/about/me")
@@ -120,6 +91,9 @@ public class MenuController {
         List<Map> archiveList = iArticleService.selectArticleArchiveList();
         model.addAttribute("archiveList", archiveList);
 
+        //标签云
+        List<Tag> tagList = iTagService.selectList(null);
+        model.addAttribute("tagList", tagList);
 
         EntityWrapper<Article> exA = new EntityWrapper<>();
         Article article = new Article();

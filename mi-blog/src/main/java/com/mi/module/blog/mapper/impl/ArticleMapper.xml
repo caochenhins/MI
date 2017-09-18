@@ -21,6 +21,7 @@
 		<result column="content" property="content" />
 		<result column="description" property="description" />
 		<result column="status" property="status" />
+        <result column="class_type" property="classType"/>
 		<result column="author" property="author" />
 		<result column="create_time" property="createTime" />
 		<result column="update_time" property="updateTime" />

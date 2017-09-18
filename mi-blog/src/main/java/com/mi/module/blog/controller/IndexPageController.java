@@ -5,6 +5,7 @@ import com.mi.data.vo.ArticleVo;
 import com.mi.data.vo.Pager;
 import com.mi.module.blog.entity.Article;
 import com.mi.module.blog.entity.Friendlink;
+import com.mi.module.blog.entity.Tag;
 import com.mi.module.blog.entity.UserInfo;
 import com.mi.module.blog.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
