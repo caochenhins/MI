@@ -27,27 +27,27 @@ info:
 swagger:
   docket:
     pro:
-     title: spring-boot-starter-swagger
-     description: Starter for swagger 2.x
-     version: 1.1.0.RELEASE
-     license: Apache License, Version 2.0
+     title: MI-Client 项目 Platform API (产品版本)
+     description: REST API 设计在细节上有很多自己独特的需要注意的技巧，并且对开发人员在构架设计能力上比传统 API 有着更高的要求。<br/>本文通过翔实的叙述和一系列的范例，从整体结构，到局部细节，分析和解读了为了提高易用性和高效性，REST API 设计应该注意哪些问题以及如何解决这些问题。
+     version: 1.0.RELEASE
+     license: Apache License,Version 2.0
      licenseUrl: https://www.apache.org/licenses/LICENSE-2.0.html
-     termsOfServiceUrl: https://github.com/dyc87112/spring-boot-starter-swagger
+     termsOfServiceUrl: https://github.com/miyaow/mi
      contact:
-       name: MIYAOW
-       url: http://blog.csdn.net/fjnpysh
-       email: dyc87112@qq.com
+        name: MIYAOW
+        url: http://blog.csdn.net/fjnpysh
+        email: 454514080@qq.com
      base-package: com.mi.controller
      base-path: /**
      exclude-path: /error,/ops/**
 
     dev:
-     title: spring-boot-starter-swagger
-     description: Starter for swagger 2.x
-     version: 1.1.0.RELEASE
-     license: Apache License, Version 2.0
+     title: MI-Client 项目 Platform API (生产版本)
+     description: REST API 设计在细节上有很多自己独特的需要注意的技巧，并且对开发人员在构架设计能力上比传统 API 有着更高的要求。<br/>本文通过翔实的叙述和一系列的范例，从整体结构，到局部细节，分析和解读了为了提高易用性和高效性，REST API 设计应该注意哪些问题以及如何解决这些问题。
+     version: 1.0.RELEASE
+     license: Apache License,Version 2.0
      licenseUrl: https://www.apache.org/licenses/LICENSE-2.0.html
-     termsOfServiceUrl: https://github.com/dyc87112/spring-boot-starter-swagger
+     termsOfServiceUrl: https://github.com/miyaow/mi
      contact:
        name: MIYAOW2
        url: http://blog.csdn.net/fjnpysh
