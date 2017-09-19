@@ -16,21 +16,26 @@
   
   - `完成消费者双模式消费` `(常用：Ribbon模式)`
   
+  
+- 注意事项 
+  
+  - 若远程调用服务，可能因为hostname名称识别不了。Win系统下# Windx C:\Windows\System32\drivers\etc 设置 指定好对应的hostname即可
+  
 
-### 主要更新：
+### 主要模块：
 
 - 注册中心的服务与发现 Eureka server；
   
-   - `mi-eureka-server`(注册中心一)
+   - ` √ mi-eureka-server`(注册中心一)
    
-   - `mi-eureka-server-bak`(注册中心二)
+   - ` √ mi-eureka-server-bak`(注册中心二)
    
 - 服务注册与消费 Eureka Client
 
-   - `mi-eureka-client` (服务提供者一)
+   - ` √ mi-eureka-client` (服务提供者一)
    
-   - `mi-eureka-client-api` (服务提供者二)
+   - ` √ mi-eureka-client-api` (服务提供者二)
    
-   - `mi-eureka-consumer` (服务消费者 Feign Ribbon)
+   - ` √ mi-eureka-consumer` (服务消费者 双模式案例 Feign Ribbon)
     
 - 更新 `README.md` 等相关文档和示例；
