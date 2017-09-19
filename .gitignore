@@ -20,3 +20,6 @@ target/
 #
 #mi-blog/target/
 #mi-common/target/
+
+/mi-blog/src/main/resources/application-pro.properties
+/mi-admin/mi-spring-boot-admin/src/main/resources/application-pro.yml

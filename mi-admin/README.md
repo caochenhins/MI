@@ -4,7 +4,7 @@
 
 ## 技术要点
 
-#### - **`Mi Platform Center`**  MI 总平台管理中心
+####  **`Mi Platform Center`**  MI 总平台管理中心
    
     - 数据库读写分离配置(AOP切入控制层读写)
     - Druid 数据监控
@@ -12,14 +12,13 @@
     - Reids 缓存数据库
 
 
-#### - **`Mi Platform Center Web`**  MI 总平台管理中心
+####  **`Mi Platform Center Web`**  MI 总平台管理中心
    
     - Vue.js使用
     - 前后端分离
 
 
-#### - **`Mi Spring Boot Admin`**  在Spring Boot Actuator的基础上提供简洁的可视化WEB UI，是用来管理 Spring Boot 应用程序的一个简单的界面，提供如下功能：
-   
+#### **` :fa-check-square-o: Mi Spring Boot Admin `**  在Spring Boot Actuator的基础上提供简洁的可视化WEB UI，是用来管理 Spring Boot 应用程序的一个简单的界面，提供如下功能：  
     - 引入Spring Security框架配套登入模块
     - 显示 name/id 和版本号
     - 显示在线状态
