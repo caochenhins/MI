@@ -1,11 +1,12 @@
 server:
   port: 1000
+  ip:  127.0.0.1
 spring:
   application:
     name: MI-SB-ADMIN-WEB
   boot:
     admin:
-      url: http://localhost:${server.port}
+      url: http://${server.ip}:${server.port}
       username: "${security.user.name}"       #These two are needed so that the client
       password: "${security.user.password}"   #can register at the protected server api
     client:
@@ -20,11 +21,15 @@ security:
   basic:
     enabled: false
 
+#开启shutdown的安全验证
 endpoints:
   health:
-    sensitive: false
+    sensitive: true
   cors:
     allowed-methods: HEAD,GET,POST
+  shutdown:
+    enabled: true #启用shutdown
+    sensitive: true #禁用密码验证
 
 # 引用监控限制内容Map <Key String>
 info:
@@ -39,6 +44,7 @@ info:
 management:
   security:
     enabled: false
+    roles: SUPERUSER
 
 
 

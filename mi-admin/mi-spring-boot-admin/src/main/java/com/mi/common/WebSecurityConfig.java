@@ -43,7 +43,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/**").hasRole("USER")
-                .antMatchers("/**").authenticated()
+                .antMatchers("/**").hasRole("SUPERUSER")
+                .antMatchers("/**/**").authenticated()
                 .and() //Login Form configuration for all others
                 .formLogin()
                 .loginPage("/login.html")
@@ -57,21 +58,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpBasic();
 
     }
-
-//    @Value("${security.user.name}")
-//    private String securityuser;
-//    @Value("${security.user.password}")
-//    private String securitypassword;
-
-//    @Override  //也可以在application.yml文件中配置登录账号密码：security.user.name/password
-//    protected void configure(AuthenticationManagerBuilder auth)
-//            throws Exception {
-//        auth
-//                .inMemoryAuthentication()
-//                .withUser(securityuser)
-//                .password(securitypassword)
-//                .roles("USER", "ADMIN");
-//    }
 
 }
 
