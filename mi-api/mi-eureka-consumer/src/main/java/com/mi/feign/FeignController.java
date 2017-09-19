@@ -21,7 +21,7 @@ public class FeignController {
     @Autowired
     private FeignService feignService;
 
-    @RequestMapping(value = "hi",method = RequestMethod.GET)
+    @RequestMapping(value = "/hi", method = RequestMethod.GET)
     public String hello(@RequestParam String name){
         return feignService.Hello(name);
     }

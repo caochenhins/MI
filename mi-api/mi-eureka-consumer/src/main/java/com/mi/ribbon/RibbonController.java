@@ -24,7 +24,7 @@ public class RibbonController {
 
     @RequestMapping(value = "/helloR",method = RequestMethod.GET)
     public String hello(){
-        return  restTemplate.getForEntity("http://MI-EUREKA-CLIENT/hi?name=Ribbon",String .class).getBody();
+        return restTemplate.getForEntity("http://MI-EUREKA-CLIENT/hi?name=Ribbon", String.class).getBody();
     }
 
     @RequestMapping(value = "/helloH",method = RequestMethod.GET)

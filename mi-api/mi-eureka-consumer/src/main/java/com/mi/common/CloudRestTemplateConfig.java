@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 消费配置
+ * CloudRestTemplate消费配置
  *
  * @author yesh
  *         (M.M)!

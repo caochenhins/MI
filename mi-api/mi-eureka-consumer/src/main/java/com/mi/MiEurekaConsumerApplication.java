@@ -15,9 +15,9 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableFeignClients
 @EnableEurekaClient
 @EnableCircuitBreaker //路由注解开启
-public class MiEurekaDiscoveryApplication {
+public class MiEurekaConsumerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MiEurekaDiscoveryApplication.class, args);
+		SpringApplication.run(MiEurekaConsumerApplication.class, args);
 	}
 }
