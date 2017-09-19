@@ -1,6 +1,5 @@
 package com.mi.controller;
 
-import com.mi.common.annotation.Pro;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -16,41 +15,32 @@ import org.springframework.web.bind.annotation.*;
  *         Created by 2017/5/7.
  */
 @Api(description = "测试用例控制器")
-@Pro
 @Controller
 @RequestMapping("/swagger")
 public class TestController {
 
-    @ApiOperation(value = "TEST接口简介", notes = "接口详细描述")
-    @RequestMapping(value = "helloTest", method = RequestMethod.POST)
+    @ApiOperation(value = "TEST案例接口简介(POST)", notes = "接口详细描述")
+    @RequestMapping(value = "/test/post", method = RequestMethod.POST)
     @ResponseBody
-    public UserRes hello(@RequestBody User user) {
+    public UserRes helloPOST(@RequestBody User user) {
         UserRes u = new UserRes();
         u.setId(user.getId());
         return u;
     }
 
-    @ApiOperation(value = "TEST接口简介2", notes = "接口详细描述2")
-    @RequestMapping(value = "helloTest", method = RequestMethod.GET)
+    @ApiOperation(value = "TEST案例接口简介(GET)", notes = "接口详细描述")
+    @RequestMapping(value = "/test/get", method = RequestMethod.GET)
     @ResponseBody
-    public UserRes hello1(@RequestBody User user) {
+    public UserRes helloGET(@RequestBody User user) {
         UserRes u = new UserRes();
         u.setId(user.getId());
         return u;
     }
 }
 
-/**
- *
- *
- */
 @ApiModel(value = "User//参数实体")
 class User {
-
     @ApiModelProperty(value = "主键")
-    /**
-     * 主键
-     */
     private int id; //主键
     @ApiModelProperty(value = "姓名")
     private int name;

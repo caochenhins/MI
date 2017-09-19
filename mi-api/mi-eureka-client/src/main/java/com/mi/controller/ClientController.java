@@ -26,7 +26,7 @@ public class ClientController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "hi", method = RequestMethod.GET)
+    @RequestMapping(value = "/hi", method = RequestMethod.GET)
     public String hello1(@RequestParam String name){
         System.err.println("-----------------------------");
         ServiceInstance instance = discoveryClient.getInstances("mi-eureka-client").get(0);
