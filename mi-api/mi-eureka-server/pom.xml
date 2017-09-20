@@ -77,7 +77,7 @@
 
     <!-- jar -->
     <build>
-        <finalName>SC_Eureka_v1.0</finalName>
+        <finalName>SC_Eureka_Server_v1.0</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
