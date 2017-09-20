@@ -4,19 +4,12 @@
 [![GitHub stars](https://img.shields.io/github/stars/MIYAOW/MI.svg?style=social&label=Stars)](https://github.com/MIYAOW/MI)
 [![GitHub forks](https://img.shields.io/github/forks/MIYAOW/MI.svg?style=social&label=Fork)](https://github.com/MIYAOW/MI)
 
-## 通知
-
-- 正在更新MI-BLOG模块....
-
-- 采取功能性提交所以代码更新都是好几天完成了才一口气提交
-
-- 相关部署以及程序讲解文档后期跟进（ (┬＿┬) 谅解下我只有一双手一个脑袋）
- 
+![](http://ovr5hz4v2.bkt.clouddn.com//logo/MILOGO-120x120.png)
 
 ## 作者前言
 
    希望大家一起共同研究。更多的解决方法。 联系方式见点击上边的License即可。
-   由于本人非技术大牛，业务时间较少。但是保证不定期更新。若有较好的意见或者建议提问到ISSUES
+   由于本人非技术大牛，业余时间较少。但是保证不定期更新。若有较好的意见或者建议提问到ISSUES
 
 ## 项目规划
 
@@ -24,49 +17,34 @@
 
 ## 项目介绍
 
-　　基于 **Spring Boot** + **Spring Cloud** + **Mybatis** 为主流框架搭建的分布式敏捷开发系统架构，为中、小型项目打造企业级基础开发解决方案。
+　　基于 **Spring Boot** + **Spring Cloud** + **Mybatis-Plus** 为主流框架搭建的分布式敏捷开发系统架构，为中、小型项目打造企业级基础开发解决方案。
 
-#### 结构图解
+#### 项目结构图解
 
-![结构图解](.project-resouce/MI-pro.png)
+![结构图解](.project-resouce/MI-PRO-O.png)
 
-#### 模块简介
+#### 项目模块简介
+
+> mi-common
+
+框架公共模块，提供相关共用工具类，以及代码生成器，基础配置参数，静态变量等,可**演变成公司专用工具类自行维护**。
+
+> mi-config
+
+分布式统一配置管理中心，可解决多环境多项目配置
+
+> mi-api
+
+接口总线服务，提供eureka注册中心。其他模块需暴露API接口可参考此案例或者在自己子项目中创建服务提供者供其他项目调用消费。
 
 > mi-admin
 
 平台总管理，提供模块运行环境、日志等监控。以及总平台管理中心功能。（待设计中）
 
-> mi-api
-
-接口总线服务模块，提供eureka注册中心。其他模块需暴露API接口可参考此案例。
-
-> mi-app
-
-移动端相关模块
-
 > mi-blog
 
-技术博客项目
+技术博客项目（使用HEXO主题模版，仿DD样式）
 
-> mi-common
-
-框架公共模块，提供相关共用工具类，以及代码生成器，基础配置参数，静态变量等。
-
-> mi-config
-
-分布式统一配置管理中心
-
-## 环境搭建
-
-#### 开发工具与环境
-- **IntelliJ IDEA Version(2017.1)**
-- **MySQL**  
-- **Navicat** 
-- **Jdk 8**
-- **Redis**
-- **Microsoft Visio**
-- **Power Designer**
-- **Git**
 
 ## 技术选型
 
@@ -76,7 +54,6 @@
 Editor.md | Markdown编辑器  | [https://github.com/pandao/editor.md](https://github.com/pandao/editor.md)
 Select2 | 选择框插件  | [https://github.com/select2/select2](https://github.com/select2/select2)
 jqPaginator | jQuery分页组件  | [http://jqpaginator.keenwon.com/](http://jqpaginator.keenwon.com/)
-
 
 #### 后端技术
 技术 | 名称 | 官网
@@ -96,18 +73,31 @@ Druid | 数据库连接池 | [https://github.com/alibaba/druid/](https://github.
 Log4J | 日志组件 | [https://logging.apache.org/log4j/2.x/](https://logging.apache.org/log4j/2.x/)
 Velocity | 模板引擎 | [http://velocity.apache.org/](http://velocity.apache.org/)
 
+## 环境搭建
+
+#### 开发工具
+- **IntelliJ IDEA Version(2017.1)**
+- **MySQL** 
+- **Navicat**
+- **Microsoft Visio**
+- **Power Designer**
+- **Git**
+- **Nginx**
+
+#### 配置环境
+ 
+- **Jdk 8**
+- **Redis**
+- **Mysql5.5 ↑**
 
 
-## 演示地址
 
-演示地址： [http://blog.miterm.com:1000/login.html](http://blog.miterm.com:1000/login.html "演示地址")
+## 项目案例图示
 
+### 预览图
+![SBA](..project-resouce/项目效果图/SBA-v1.0.gif)
+![SBA](..project-resouce/项目效果图/SBA监控项目环境.png)
 
-## 解决问题
-                
-+ **部署问题**
-    +  **从git上克隆下来的时候项目pom.xml文件是xml格式请根据自己的编译器转换格式**
-        
-        IDEA:选择pom右键--->+Add as Maven Project 稍等即可
-     
-    + **首先若使用MI-API模块案例 先启动注册中心、服务提供者、消费者。**
+## 许可证
+
+[MIT](http://ovr5hz4v2.bkt.clouddn.com//licenses/MIT.jpg "MIT")
