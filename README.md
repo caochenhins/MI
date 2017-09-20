@@ -4,7 +4,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/MIYAOW/MI.svg?style=social&label=Stars)](https://github.com/MIYAOW/MI)
 [![GitHub forks](https://img.shields.io/github/forks/MIYAOW/MI.svg?style=social&label=Fork)](https://github.com/MIYAOW/MI)
 
-![](http://ovr5hz4v2.bkt.clouddn.com//logo/MILOGO-120x120.png)
+![](http://ovr5hz4v2.bkt.clouddn.com/dlogo/MILOGO-120x120.png)
 
 ## 作者前言
 
@@ -95,9 +95,14 @@ Velocity | 模板引擎 | [http://velocity.apache.org/](http://velocity.apache.o
 ## 项目案例图示
 
 ### 预览图
-![SBA](..project-resouce/项目效果图/SBA-v1.0.gif)
-![SBA](..project-resouce/项目效果图/SBA监控项目环境.png)
+![SBA](.project-resouce/项目效果图/SBA-v1.0.gif)
+![SBA](.project-resouce/项目效果图/SBA监控项目环境.png)
 
 ## 许可证
 
 [MIT](http://ovr5hz4v2.bkt.clouddn.com//licenses/MIT.jpg "MIT")
+
+## 感谢赞助
+![thanks](.project-resouce/thanks.png)
+
+
