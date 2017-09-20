@@ -97,6 +97,11 @@ Velocity | 模板引擎 | [http://velocity.apache.org/](http://velocity.apache.o
 ### 预览图
 ![SBA](.project-resouce/项目效果图/SBA-v1.0.gif)
 ![SBA](.project-resouce/项目效果图/SBA监控项目环境.png)
+![SBA](.project-resouce/项目效果图/eureka.png)
+![SBA](.project-resouce/项目效果图/sbad.png)
+![SBA](.project-resouce/项目效果图/swagger2.gif)
+
+
 
 ## 许可证
 
