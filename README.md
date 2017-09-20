@@ -4,7 +4,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/MIYAOW/MI.svg?style=social&label=Stars)](https://github.com/MIYAOW/MI)
 [![GitHub forks](https://img.shields.io/github/forks/MIYAOW/MI.svg?style=social&label=Fork)](https://github.com/MIYAOW/MI)
 
-![](http://ovr5hz4v2.bkt.clouddn.com/dlogo/MILOGO-120x120.png)
+![logo](.project-resouce/MILOGO-120x120.png)
 
 ## 作者前言
 
