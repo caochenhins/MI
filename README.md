@@ -6,6 +6,8 @@
 
 ![logo](.project-resouce/MILOGO-120x120.png)
 
+技术交流群：ⓕ-386423880[福建区](https://jq.qq.com/?_wv=1027&k=517NHmC)
+
 ## 作者前言
 
    希望大家一起共同研究。更多的解决方法。 联系方式见点击上边的License即可。
@@ -94,18 +96,23 @@ Velocity | 模板引擎 | [http://velocity.apache.org/](http://velocity.apache.o
 
 ## 项目案例图示
 
-### 预览图
+### API 模块预览图
+#### SBA
 ![SBA](.project-resouce/项目效果图/SBA-v1.0.gif)
 ![SBA](.project-resouce/项目效果图/SBA监控项目环境.png)
-![SBA](.project-resouce/项目效果图/eureka.png)
-![SBA](.project-resouce/项目效果图/sbad.png)
-![SBA](.project-resouce/项目效果图/swagger2.gif)
+
+#### Eureka
+![Eureka](.project-resouce/项目效果图/eureka.png)
+![Eureka](.project-resouce/项目效果图/sbad.png)
+
+#### Swagger2
+![Swagger2](.project-resouce/项目效果图/swagger2.gif)
 
 
 
 ## 许可证
 
-[MIT](http://ovr5hz4v2.bkt.clouddn.com//licenses/MIT.jpg "MIT")
+[MIT](http://ovr5hz4v2.bkt.clouddn.com/licenses/MIT.jpg "MIT")
 
 ## 感谢赞助
 ![thanks](.project-resouce/thanks.png)
