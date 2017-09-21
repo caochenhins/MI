@@ -2,6 +2,7 @@ package com.mi.module.blog.controller;
 
 import com.mi.data.vo.Pager;
 import com.mi.module.blog.service.IArticleService;
+import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/initPage")
+@Log4j
 public class PagerController {
     @Autowired
     private IArticleService iArticleService;

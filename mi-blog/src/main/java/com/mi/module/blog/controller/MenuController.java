@@ -8,6 +8,7 @@ import com.mi.module.blog.entity.Friendlink;
 import com.mi.module.blog.entity.Tag;
 import com.mi.module.blog.entity.UserInfo;
 import com.mi.module.blog.service.*;
+import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +25,7 @@ import java.util.*;
  *         Created by 2017/9/8.
  */
 @Controller
+@Log4j
 public class MenuController {
     @Autowired
     private IUserInfoService iUserInfoService;

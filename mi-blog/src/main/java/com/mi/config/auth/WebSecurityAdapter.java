@@ -2,6 +2,7 @@ package com.mi.config.auth;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -57,6 +58,13 @@ public class WebSecurityAdapter extends WebSecurityConfigurerAdapter {
     public AuthenticationProvider authenticationProvider(){
         AuthenticationProvider authenticationProvider=new CustomAuthenticationProvider();
         return authenticationProvider;
+    }
+
+    @Bean
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        // ALTOUGH THIS SEEMS LIKE USELESS CODE,
+        // ITS REQUIRED TO PREVEND SPRING BOOT AUTO-CONFIGURATION
+        return super.authenticationManagerBean();
     }
 
 }
