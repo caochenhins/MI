@@ -1,6 +1,6 @@
 server:
   port: 2002
-  ip: localhost
+  ip: 127.0.0.1
 spring:
   application:
     name: MI-EUREKA-CONSUMER
