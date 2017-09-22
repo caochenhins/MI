@@ -1,5 +1,6 @@
 package com.mi.module.blog.mapper;
 
+import com.baomidou.mybatisplus.plugins.Page;
 import com.mi.data.vo.ArticleVo;
 import com.mi.data.vo.Pager;
 import com.mi.module.blog.entity.Article;
@@ -23,7 +24,7 @@ public interface ArticleMapper extends BaseMapper<Article> {
 
     List<Article> selectArticleListByKeywords(Map map);
 
-    List<ArticleVo> selectArticleList(Pager<Article> pager);
+    List<ArticleVo> selectArticleList(Page<ArticleVo> page);
 
     List<Article> loadArticle(Map<String, Object> param);
 

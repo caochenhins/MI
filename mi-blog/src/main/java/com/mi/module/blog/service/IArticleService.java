@@ -1,5 +1,6 @@
 package com.mi.module.blog.service;
 
+import com.baomidou.mybatisplus.plugins.Page;
 import com.mi.data.vo.ArticleVo;
 import com.mi.data.vo.Pager;
 import com.mi.module.blog.entity.Article;
@@ -37,10 +38,10 @@ public interface IArticleService extends IService<Article> {
 
     /**
      * 首页加载文章列表
-     * @param pager
+     * @param page
      * @return
      */
-    List<ArticleVo> selectArticleList(Pager<Article> pager);
+    Page<ArticleVo> selectArticleList(Page<ArticleVo> page);
 
     /**
      * 条件查询文章

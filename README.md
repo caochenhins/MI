@@ -56,6 +56,8 @@
 Editor.md | Markdown编辑器  | [https://github.com/pandao/editor.md](https://github.com/pandao/editor.md)
 Select2 | 选择框插件  | [https://github.com/select2/select2](https://github.com/select2/select2)
 jqPaginator | jQuery分页组件  | [http://jqpaginator.keenwon.com/](http://jqpaginator.keenwon.com/)
+Thymeleaf | 模板引擎  | [http://www.thymeleaf.org/](http://www.thymeleaf.org/)
+Velocity | 模板引擎  | [http://velocity.apache.org/](http://velocity.apache.org/)
 
 #### 后端技术
 技术 | 名称 | 官网
@@ -73,7 +75,7 @@ MyBatis Generator | 代码生成  | [http://www.mybatis.org/generator/index.html
 MyBatis-Plus | Mybatis增强工具包  | [http://mp.baomidou.com/#//](http://mp.baomidou.com/#//)
 Druid | 数据库连接池 | [https://github.com/alibaba/druid/](https://github.com/alibaba/druid/)
 Log4J | 日志组件 | [https://logging.apache.org/log4j/2.x/](https://logging.apache.org/log4j/2.x/)
-Velocity | 模板引擎 | [http://velocity.apache.org/](http://velocity.apache.org/)
+
 
 ## 环境搭建
 
@@ -112,7 +114,7 @@ Velocity | 模板引擎 | [http://velocity.apache.org/](http://velocity.apache.o
 
 ## 许可证
 
-[MIT](http://ovr5hz4v2.bkt.clouddn.com/licenses/MIT.jpg "MIT")
+[MIT](https://github.com/MIYAOW/MI/blob/master/LICENSE "MIT") ☞ [明白更多](http://ovr5hz4v2.bkt.clouddn.com/licenses/MIT.jpg "MIT")
 
 ## 感谢赞助
 ![thanks](.project-resouce/thanks.png)

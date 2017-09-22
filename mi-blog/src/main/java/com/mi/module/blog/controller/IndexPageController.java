@@ -1,11 +1,11 @@
 package com.mi.module.blog.controller;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.plugins.Page;
 import com.mi.data.vo.ArticleVo;
 import com.mi.data.vo.Pager;
 import com.mi.module.blog.entity.Article;
 import com.mi.module.blog.entity.Friendlink;
-import com.mi.module.blog.entity.Tag;
 import com.mi.module.blog.entity.UserInfo;
 import com.mi.module.blog.service.*;
 import lombok.extern.log4j.Log4j;
@@ -13,9 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.validation.constraints.NotNull;
 import java.util.*;
 
 /**
@@ -55,9 +56,12 @@ public class IndexPageController {
      * @return
      */
     @RequestMapping("/article")
-    public String loadArticle(Pager<Article> pager, Model model) {
-        List<ArticleVo> articleList = iArticleService.selectArticleList(pager);
-        model.addAttribute("articleList", articleList);
+    public String loadArticle(Model model) {
+
+        Page<ArticleVo> page;
+        page = iArticleService.selectArticleList(new Page(1, 1));
+        model.addAttribute("page", page);
+
         return "blog/right/articleSummary";
     }
 

@@ -1,6 +1,7 @@
 package com.mi.module.blog.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.plugins.Page;
 import com.mi.common.util.IDUntil;
 import com.mi.data.vo.ArticleVo;
 import com.mi.data.vo.Pager;
@@ -57,8 +58,10 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     }
 
     @Override
-    public List<ArticleVo> selectArticleList(Pager<Article> pager) {
-        return articleMapper.selectArticleList(pager);
+    public Page<ArticleVo> selectArticleList(Page<ArticleVo> page) {
+        List<ArticleVo> list = articleMapper.selectArticleList(page);
+        page.setRecords(list);
+        return page;
     }
 
     @Override

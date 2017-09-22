@@ -2,7 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="zh">
 <head th:replace="blog/part/head :: head"></head>
 
-<article th:each="article : ${articleList}"
+
+<article th:each="article : ${page.records}"
          th:id="'/article/details/'+${article.articleId}"
          class="article article-type-post"
          itemscope itemprop="blogPost" th:fragment="article-summary">
@@ -73,7 +74,10 @@
     </div>
 </article>
 
+<div th:replace="blog/part/page :: page"></div>
+
 <!--分享-->
 <script type="text/javascript" src="/js/share.js"></script>
+
 </html>
 
