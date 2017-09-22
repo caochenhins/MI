@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<link rel="stylesheet" href="/css/pagination.css">
+
 <div th:fragment="page">
+    <link rel="stylesheet" href="/css/pagination.css">
 
     <div style="margin-top: -29px;height:50px">
         <div id="pagination" class="pagination" style="float: right"/>
     </div>
 
-    <!-- 分页取值 -->
     <script th:inline="javascript">
         /*<![CDATA[*/
+        var url; //请求路径
         var pages = [[${page}]];
         console.log(pages);
         console.log(pages.size);
@@ -27,21 +28,37 @@
             page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
             onPageChange: function (num, type) { //换页方法
 
-                console.log(123);
-                var type = $("#pagination").data("type");
-                // loadList('article', id);
+                console.log(url);
                 // 当前第几页
-                $("#current-page").text(3);
-                $(".chosen-select").chosen({
-                    max_selected_options: 5,
-                    no_results_text: "没有找到",
-                    allow_single_deselect: true
-                });
-                $(".chosen-select").trigger("liszt:updated");
+                $("#current-page").text(pages.current);
+
+
+                initData2(url, null);
             }
         });
-    </script>
+        /*将加载文章,文章分类,标签分类重构成一个方法*/
+        function initData2(url, id) {
+            $.ajax({
+                type: 'GET',
+                url: url,
+                success: function (data) {
+//                $("#main-article").html(data);
+                    //初始化文章分页信息
+                    //初始化文章
+                    /*分享初始化*/
+//            $(".socialShare").socialShare({
+//                content: "EumJi在IT,生活,音乐方面的分享",
+//                url: "www.eumji025.com/",
+//                title: $("#article-title").text(),
+//                summary: 'Eumji个人博客分享,欢迎指教',
+//                pic: 'http://of8rkrh1w.bkt.clouddn.com/2017/4/21/touxiang.jpg'
+//            });
+                    $('#loader-wrapper .load_title').remove();
+                }
+            })
+        }
 
+    </script>
 </div>
 </html>
 

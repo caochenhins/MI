@@ -42,27 +42,19 @@ public class IndexPageController {
 
 
     /**
-     * 加载首页文章
-     **/
-    @RequestMapping("/main")
-    public String main(Model model) {
-        return "blog/main";
-    }
-
-    /**
      * 加载分页列表数据
      *
      * @param model
      * @return
      */
-    @RequestMapping("/article")
+    @RequestMapping("/article/list")
     public String loadArticle(Model model) {
 
         Page<ArticleVo> page;
         page = iArticleService.selectArticleList(new Page(1, 1));
         model.addAttribute("page", page);
 
-        return "blog/right/articleSummary";
+        return "blog/main";
     }
 
     /**
