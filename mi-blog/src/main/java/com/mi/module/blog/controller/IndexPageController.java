@@ -48,10 +48,10 @@ public class IndexPageController {
      * @return
      */
     @RequestMapping("/article/list")
-    public String loadArticle(Model model) {
+    public String loadMainPage(Page pages, Model model) {
 
         Page<ArticleVo> page;
-        page = iArticleService.selectArticleList(new Page(1, 1));
+        page = iArticleService.selectArticleList(new Page(pages.getCurrent(), 1));
         model.addAttribute("page", page);
 
         return "blog/main";
@@ -67,7 +67,7 @@ public class IndexPageController {
      * @return
      */
     @RequestMapping("/article/details/{articleId}")
-    public String loadArticle(@PathVariable String articleId, Model model) {
+    public String loadArticleD(@PathVariable String articleId, Model model) {
         //当前文章的所有信息
         //后期参数定义 做成多博客系统
         UserInfo uInfo = iUserInfoService.selectByUserId("1");

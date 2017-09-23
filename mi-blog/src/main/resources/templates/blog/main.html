@@ -77,39 +77,37 @@
     </article>
 
 
-    <div th:replace="blog/part/page :: page" data-type="123"></div>
+    <div th:include="blog/part/page :: page" url="/article/list" th:data="${page.current}"></div>
 
 </div>
 
 <script type="text/javascript">
-    url = '/article/list';
-    /*初始化加载数据*/
-    $(function () {
-        initData(url, null);
-    });
-    /*将加载文章,文章分类,标签分类重构成一个方法*/
-    function initData(url, id) {
-        $.ajax({
-            type: 'GET',
-            url: url,
-            success: function (data) {
-//            $("#main-article").html(data);
-                //初始化文章分页信息
-                //初始化文章
-                /*分享初始化*/
-//            $(".socialShare").socialShare({
-//                content: "EumJi在IT,生活,音乐方面的分享",
-//                url: "www.eumji025.com/",
-//                title: $("#article-title").text(),
-//                summary: 'Eumji个人博客分享,欢迎指教',
-//                pic: 'http://of8rkrh1w.bkt.clouddn.com/2017/4/21/touxiang.jpg'
-//            });
-                $('#loader-wrapper .load_title').remove();
-            }
-        })
-    }
-
-
+    //    url = '/article/list';
+    //    /*初始化加载数据*/
+    //    $(function () {
+    //        initData(url, null);
+    //    });
+    //    /*将加载文章,文章分类,标签分类重构成一个方法*/
+    //    function initData(url, id) {
+    //        $.ajax({
+    //            type: 'GET',
+    //            url: url,
+    //            success: function (data) {
+    ////            $("#main-article").html(data);
+    //                //初始化文章分页信息
+    //                //初始化文章
+    //                /*分享初始化*/
+    ////            $(".socialShare").socialShare({
+    ////                content: "EumJi在IT,生活,音乐方面的分享",
+    ////                url: "www.eumji025.com/",
+    ////                title: $("#article-title").text(),
+    ////                summary: 'Eumji个人博客分享,欢迎指教',
+    ////                pic: 'http://of8rkrh1w.bkt.clouddn.com/2017/4/21/touxiang.jpg'
+    ////            });
+    //                $('#loader-wrapper .load_title').remove();
+    //            }
+    //        })
+    //    }
 </script>
 
 <!--分享-->

@@ -9,54 +9,63 @@
     </div>
 
     <script th:inline="javascript">
+        //分页组件第一次加载为true，后面false
+        var if_firstime = true;
         /*<![CDATA[*/
         var url; //请求路径
         var pages = [[${page}]];
-        console.log(pages);
-        console.log(pages.size);
+        var url = document.getElementById('pagination').parentNode.parentNode.getAttribute('url');
+        var currentNum = document.getElementById('pagination').parentNode.parentNode.getAttribute('data');
         /*]]>*/
+
+        $("#total-num").text(pages.total);
+        $("#total-page").text(pages.pages);
+        $("#current-page").text(pages.current);
         $.jqPaginator('#pagination', {
             totalPages: pages.pages,  //设置分页的总页数
             totalCounts: pages.total, //设置分页的总条目数
             visiblePages: 3, //设置最多显示的页码数
             currentPage: pages.current, //设置当前的页码
             pageSize: pages.size,
-            first: '<li class="first"><a href="javascript:;">首页</a></li>',
-            prev: '<li class="prev"><a href="javascript:;">上一页</a></li>',
-            next: '<li class="next"><a href="javascript:;">下一页</a></li>',
-            last: '<li class="last"><a href="javascript:;">末页</a></li>',
-            page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
-            onPageChange: function (num, type) { //换页方法
-
-                console.log(url);
+            first: '<li class="first"><a href="javascript:void(0)">首页</a></li>',
+            prev: '<li class="prev"><a href="javascript:void(0)">上一页</a></li>',
+            next: '<li class="next"><a href="javascript:void(0)">下一页</a></li>',
+            last: '<li class="last"><a href="javascript:void(0)">末页</a></li>',
+            page: '<li class="page"><a href="javascript:void(0)">{{page}}</a></li>',
+            onPageChange: function (page) { //换页方法
+                console.log("---------" + page);
                 // 当前第几页
                 $("#current-page").text(pages.current);
-
-
-                initData2(url, null);
+                if (if_firstime) {
+                    if_firstime = false;
+                } else if (!if_firstime) {
+                    initData(url, page);
+                }
             }
         });
-        /*将加载文章,文章分类,标签分类重构成一个方法*/
-        function initData2(url, id) {
+
+        function initData(url, p) {
             $.ajax({
                 type: 'GET',
                 url: url,
+                data: {
+                    "current": p
+                },
                 success: function (data) {
-//                $("#main-article").html(data);
-                    //初始化文章分页信息
-                    //初始化文章
+                    $("#main-article").html(data);
                     /*分享初始化*/
-//            $(".socialShare").socialShare({
-//                content: "EumJi在IT,生活,音乐方面的分享",
-//                url: "www.eumji025.com/",
-//                title: $("#article-title").text(),
-//                summary: 'Eumji个人博客分享,欢迎指教',
-//                pic: 'http://of8rkrh1w.bkt.clouddn.com/2017/4/21/touxiang.jpg'
-//            });
+                    $(".socialShare").socialShare({
+                        content: "EumJi在IT,生活,音乐方面的分享",
+                        url: "www.eumji025.com/",
+                        title: $("#article-title").text(),
+                        summary: 'Eumji个人博客分享,欢迎指教',
+                        pic: 'http://of8rkrh1w.bkt.clouddn.com/2017/4/21/touxiang.jpg'
+                    });
                     $('#loader-wrapper .load_title').remove();
                 }
             })
         }
+
 
     </script>
 </div>
