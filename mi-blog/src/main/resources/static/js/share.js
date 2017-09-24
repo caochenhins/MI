@@ -206,7 +206,7 @@ function loadShareInfo(target) {
         url: "www.miterm.com" + $(parent).data("url"),
         title:$(parent).data("title"),
         summary: $(parent).data("desc") != null ? $(parent).data("desc") : 'MIYAOW个人博客分享,欢迎指教',
-        pic:'http://of8rkrh1w.bkt.clouddn.com/2017/4/21/touxiang.jpg'
+        pic: 'http://ovr5hz4v2.bkt.clouddn.com/avatar.jpg'
 	};
 	return result;
 	

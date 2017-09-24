@@ -1,15 +1,15 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="zh">
 
+
 <head th:replace="blog/part/head :: head">
 
-    <link rel="stylesheet" type="text/css" href="/css/load.css">
     <style>
         @media screen and (min-width: 1200px) {
             #main {
                 display: inline;
                 float: left;
-                width: 74.9999999999%;
+                width: 80%;
                 margin: 0 0.769230769230769%;
             }
         }
@@ -17,7 +17,7 @@
             #main {
                 display: inline;
                 float: left;
-                width: 74.9999999999%;
+                width: 90%;
                 margin: 0 0.769230769230769%;
             }
         }
@@ -36,7 +36,7 @@
         <!-- 左边部分-->
         <aside id="profile">
             <!--个人基础信息-->
-            <div class="inner profile-inner" th:replace="blog/left/base-of-me :: base_of_me"></div>
+            <div class="inner profile-inner" th:replace="blog/left/baseUserInfo :: baseUserInfo"></div>
 
         </aside>
 
@@ -115,8 +115,8 @@
             <div id="SOHUCS" th:sid="${article.articleId}"></div>
             <script type="text/javascript">
                 (function(){
-                    var appid = 'cysYIxwh2';
-                    var conf = '2237c67c17fffb6d0b4cd1dd4a0b0b44';
+                    var appid = 'appid';
+                    var conf = 'conf';
                     var width = window.innerWidth || document.documentElement.clientWidth;
                     if (width < 960) {
                         window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>');
@@ -137,28 +137,23 @@
 
     <footer id="footer" th:replace="blog/part/footer :: footer"></footer>
 
-    <script src="/js/jquery.min.js"></script>
-
     <script src="/js/insight.js"></script>
     <script src="/js/lightgallery.min.js"></script>
-    <script src="/js/jqPaginator.min.js"></script>
-
 
     <script src="/admin/lib/prettify.min.js"></script>
     <script src="/admin/lib/marked.min.js"></script>
+    <script src="/admin/js/editormd.js"></script>
+    <script src="/admin/lib/flowchart.min.js"></script>
 
     <script src="/admin/lib/raphael.min.js"></script>
     <script src="/admin/lib/underscore.min.js"></script>
     <script src="/admin/lib/sequence-diagram.min.js"></script>
-    <script src="/admin/lib/flowchart.min.js"></script>
-
     <script src="/admin/lib/jquery.flowchart.min.js"></script>
-    <script src="/admin/js/editormd.js"></script>
+
 
     <script src="/js/main.js"></script>
 
     <script src="/js/article-content.js"></script>
-    <script src="/js/article.click.js"></script>
 
     <script src="/js/share.js"></script>
 
