@@ -58,6 +58,7 @@ Select2 | 选择框插件  | [https://github.com/select2/select2](https://github
 jqPaginator | jQuery分页组件  | [http://jqpaginator.keenwon.com/](http://jqpaginator.keenwon.com/)
 Thymeleaf | 模板引擎  | [http://www.thymeleaf.org/](http://www.thymeleaf.org/)
 Velocity | 模板引擎  | [http://velocity.apache.org/](http://velocity.apache.org/)
+FontAwesome | 图标CSS分类参考 | [http://www.yeahzan.com/fa/facss.html](http://www.yeahzan.com/fa/facss.html)
 
 #### 后端技术
 技术 | 名称 | 官网
