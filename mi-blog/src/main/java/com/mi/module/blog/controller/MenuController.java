@@ -1,6 +1,9 @@
 package com.mi.module.blog.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.plugins.Page;
+import com.mi.data.vo.ArticleVo;
 import com.mi.data.vo.TagCloudVo;
 import com.mi.data.vo.TypeVo;
 import com.mi.module.blog.entity.Article;
@@ -9,12 +12,14 @@ import com.mi.module.blog.entity.Tag;
 import com.mi.module.blog.entity.UserInfo;
 import com.mi.module.blog.service.*;
 import lombok.extern.log4j.Log4j;
+import org.apache.commons.lang.time.DateFormatUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.text.DateFormat;
 import java.util.*;
 
 /**
@@ -39,41 +44,7 @@ public class MenuController {
     private ITypeService iTypeService;
 
     /**
-     * 全局搜索
-     *
-     * @param keyword 关键字
-     * @param model
-     * @return
-     */
-    @RequestMapping("/article/content/search")
-    public String search(@RequestParam(value = "keyword", required = false) String keyword, Model model) {
-        Map<String, Object> paramMap = new HashMap<>();
-        paramMap.put("keyword", keyword);
-        List<Article> articleList = iArticleService.selectArticleListByKeywords(paramMap);
-        model.addAttribute("articleList", articleList);
-        return "blog/part/search-info";
-    }
-
-    /**
-     * 关于我
-     **/
-    @RequestMapping("/about/me")
-    public String aboutMe() {
-        return "blog/aboutMe";
-    }
-
-
-    /**
-     * thymeleaf 使用介绍
-     **/
-    @RequestMapping("/thymeleaf")
-    public String thymeleafPage() {
-        return "blog/thymeleaf";
-    }
-
-
-    /**
-     * 首页
+     * 主页
      **/
     @RequestMapping("/")
     public String home(Model model) {
@@ -107,9 +78,65 @@ public class MenuController {
         return "blog/index";
     }
 
-    // 获得一个给定范围的随机整数
-    public static int getRandomNum(int smallistNum, int BiggestNum) {
-        Random random = new Random();
-        return (Math.abs(random.nextInt()) % (BiggestNum - smallistNum + 1)) + smallistNum;
+    /**
+     * 加载分页列表数据
+     *
+     * @param model
+     * @return
+     */
+    @RequestMapping("/article/list")
+    public String selectArticleList(Page pages, Model model) {
+        Page<ArticleVo> page;
+        page = iArticleService.selectArticleList(new Page(pages.getCurrent(), 1));
+        model.addAttribute("page", page);
+
+        return "blog/main";
     }
+
+    /**
+     * 时间归档
+     **/
+    @RequestMapping("/archive")
+    public String selectArticleByArchive(Page pages, Model model) {
+        Page<ArticleVo> page;
+        page = iArticleService.selectArticleByArchive(new Page(pages.getCurrent(), 5));
+        //按照时间对象分离时间轴
+        model.addAttribute("page", page);
+        return "blog/archive";
+    }
+
+
+    /**
+     * 关于作者
+     **/
+    @RequestMapping("/about/me")
+    public String aboutMe() {
+        return "blog/aboutMe";
+    }
+
+
+    /**
+     * 全局搜索
+     *
+     * @param keyword 关键字
+     * @param model
+     * @return
+     */
+    @RequestMapping("/article/content/search")
+    public String search(@RequestParam(value = "keyword", required = false) String keyword, Model model) {
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("keyword", keyword);
+        List<Article> articleList = iArticleService.selectArticleListByKeywords(paramMap);
+        model.addAttribute("articleList", articleList);
+        return "blog/part/search-info";
+    }
+
+
+
+
+
+
+
+
+
 }

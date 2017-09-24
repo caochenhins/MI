@@ -67,6 +67,7 @@
        where ba.status = 1
 		order by ba.create_time desc
 	</select>
+
 	<!--通过文章id获取tag列表-->
 	<select id="getTag" resultType="com.mi.module.blog.entity.Tag" parameterType="String">
 		select
@@ -90,10 +91,16 @@
 
 	<!--获取文章的时间归档列表 -->
 	<select id="selectArticleArchiveList" resultType="java.util.Map">
-		select DATE_FORMAT(create_time,'%Y年%m月') create_time,count(article_id) count
+		select DATE_FORMAT(create_time,'%Y-%m') create_time,count(article_id) count
 		from blog_article
-		group by DATE_FORMAT(create_time,'%Y年%m月') ORDER BY create_time desc
+		group by DATE_FORMAT(create_time,'%Y-%m') ORDER BY create_time desc
 	</select>
+
+	<!--按时间归档加载文章-->
+	<select id="selectArticleByArchive" resultMap="article">
+
+	</select>
+
 	<!--通过关键字查找文章-->
 	<select id="selectArticleListByKeywords"  resultMap="BaseResultMap" parameterType="Map">
 		<if test="keyword != null and keyword != ''">

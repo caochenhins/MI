@@ -42,22 +42,6 @@ public class IndexPageController {
 
 
     /**
-     * 加载分页列表数据
-     *
-     * @param model
-     * @return
-     */
-    @RequestMapping("/article/list")
-    public String loadMainPage(Page pages, Model model) {
-
-        Page<ArticleVo> page;
-        page = iArticleService.selectArticleList(new Page(pages.getCurrent(), 1));
-        model.addAttribute("page", page);
-
-        return "blog/main";
-    }
-
-    /**
      * 加载文章详细
      * 包括总标签数
      * 总文章数量

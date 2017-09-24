@@ -36,12 +36,7 @@ public interface IArticleService extends IService<Article> {
      */
     List<Article> selectArticleListByKeywords(Map map);
 
-    /**
-     * 首页加载文章列表
-     * @param page
-     * @return
-     */
-    Page<ArticleVo> selectArticleList(Page<ArticleVo> page);
+
 
     /**
      * 条件查询文章
@@ -102,5 +97,18 @@ public interface IArticleService extends IService<Article> {
     void addArticleCount(String articleId);
 
 
+    /**
+     * 首页加载文章列表
+     *
+     * @param page
+     * @return
+     */
+    Page<ArticleVo> selectArticleList(Page<ArticleVo> page);
+
+    Page<ArticleVo> selectArticleByArchive(Page<ArticleVo> page);
+
+
     List<ArticleVo> selectArticleByType(Pager pager, String typeId);
+
+
 }

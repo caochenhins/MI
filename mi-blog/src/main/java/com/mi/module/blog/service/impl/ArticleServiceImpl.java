@@ -57,12 +57,6 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         return articleMapper.selectArticleListByKeywords(map);
     }
 
-    @Override
-    public Page<ArticleVo> selectArticleList(Page<ArticleVo> page) {
-        List<ArticleVo> list = articleMapper.selectArticleList(page);
-        page.setRecords(list);
-        return page;
-    }
 
     @Override
     public List<Article> loadArticle(Map<String, Object> param) {
@@ -139,6 +133,20 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     @Override
     public void addArticleCount(String articleId) {
         articleMapper.addArticleCount(articleId);
+    }
+
+    @Override
+    public Page<ArticleVo> selectArticleList(Page<ArticleVo> page) {
+        List<ArticleVo> list = articleMapper.selectArticleList(page);
+        page.setRecords(list);
+        return page;
+    }
+
+    @Override
+    public Page<ArticleVo> selectArticleByArchive(Page<ArticleVo> page) {
+        List<ArticleVo> list = articleMapper.selectArticleList(page);
+        page.setRecords(list);
+        return page;
     }
 
     @Override

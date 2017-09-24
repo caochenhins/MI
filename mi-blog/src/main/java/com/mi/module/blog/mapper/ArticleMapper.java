@@ -24,7 +24,7 @@ public interface ArticleMapper extends BaseMapper<Article> {
 
     List<Article> selectArticleListByKeywords(Map map);
 
-    List<ArticleVo> selectArticleList(Page<ArticleVo> page);
+
 
     List<Article> loadArticle(Map<String, Object> param);
 
@@ -36,6 +36,11 @@ public interface ArticleMapper extends BaseMapper<Article> {
 
     void addArticleCount(String articleId);
 
+    List<ArticleVo> selectArticleList(Page<ArticleVo> page);
+
+    List<ArticleVo> selectArticleByArchive(Page<ArticleVo> page);
+
     List<ArticleVo> selectArticleByType(@Param("pager") Pager pager, @Param("typeId") String typeId);
+
 
 }
