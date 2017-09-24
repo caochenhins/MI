@@ -16,6 +16,6 @@
 	</resultMap>
 
 	<select id="selectByUserId" resultMap="BaseResultMap" parameterType="string">
-		select * from blog_user_info ui
+		select  *  from blog_user_info ui  order by ui.info_id asc limit 1
 	</select>
 </mapper>
