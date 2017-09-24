@@ -76,7 +76,7 @@ MyBatis Generator | 代码生成  | [http://www.mybatis.org/generator/index.html
 MyBatis-Plus | Mybatis增强工具包  | [http://mp.baomidou.com/#//](http://mp.baomidou.com/#//)
 Druid | 数据库连接池 | [https://github.com/alibaba/druid/](https://github.com/alibaba/druid/)
 Log4J | 日志组件 | [https://logging.apache.org/log4j/2.x/](https://logging.apache.org/log4j/2.x/)
-
+Lombok | 代码消除冗长 | [https://projectlombok.org/](https://projectlombok.org/)
 
 ## 环境搭建
 
