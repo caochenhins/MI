@@ -99,7 +99,7 @@ public class MenuController {
     @RequestMapping("/archive")
     public String selectArticleByArchive(Page pages, Model model) {
         Page<ArticleVo> page;
-        page = iArticleService.selectArticleByArchive(new Page(pages.getCurrent(), 5));
+        page = iArticleService.selectArticleByArchive(new Page(pages.getCurrent(), 2));
         //按照时间对象分离时间轴
         model.addAttribute("page", page);
         return "blog/archive";
