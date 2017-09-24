@@ -1,10 +1,8 @@
 package com.mi.module.blog.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.mi.data.vo.ArticleVo;
-import com.mi.data.vo.TagCloudVo;
 import com.mi.data.vo.TypeVo;
 import com.mi.module.blog.entity.Article;
 import com.mi.module.blog.entity.Friendlink;
@@ -12,14 +10,12 @@ import com.mi.module.blog.entity.Tag;
 import com.mi.module.blog.entity.UserInfo;
 import com.mi.module.blog.service.*;
 import lombok.extern.log4j.Log4j;
-import org.apache.commons.lang.time.DateFormatUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.text.DateFormat;
 import java.util.*;
 
 /**
@@ -87,7 +83,7 @@ public class MenuController {
     @RequestMapping("/article/list")
     public String selectArticleList(Page pages, Model model) {
         Page<ArticleVo> page;
-        page = iArticleService.selectArticleList(new Page(pages.getCurrent(), 1));
+        page = iArticleService.selectArticleList(new Page(pages.getCurrent(), 5));
         model.addAttribute("page", page);
 
         return "blog/main";
@@ -99,7 +95,7 @@ public class MenuController {
     @RequestMapping("/archive")
     public String selectArticleByArchive(Page pages, Model model) {
         Page<ArticleVo> page;
-        page = iArticleService.selectArticleByArchive(new Page(pages.getCurrent(), 2));
+        page = iArticleService.selectArticleByArchive(new Page(pages.getCurrent(), 5));
         //按照时间对象分离时间轴
         model.addAttribute("page", page);
         return "blog/archive";
@@ -130,13 +126,5 @@ public class MenuController {
         model.addAttribute("articleList", articleList);
         return "blog/part/search-info";
     }
-
-
-
-
-
-
-
-
 
 }

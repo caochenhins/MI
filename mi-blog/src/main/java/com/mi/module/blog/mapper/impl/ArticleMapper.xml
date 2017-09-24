@@ -138,7 +138,7 @@
 		select article_id as articleId,title from blog_article
 		where create_time &gt; (select create_time from blog_article where article_id = #{articleId})
 		and status = 1
-		ORDER BY create_time desc LIMIT 1
+        ORDER BY create_time asc LIMIT 1
 	</select>
 
 	<!--增加文章的阅读量-->

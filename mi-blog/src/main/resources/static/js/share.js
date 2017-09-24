@@ -203,11 +203,25 @@ function loadShareInfo(target) {
 	var parent = $(target).parents(".socialShare");
 	var result = {
         content: $(parent).data("content"),
-        url: "www.miterm.com" + $(parent).data("url"),
+        url: getRootPath() + $(parent).data("url"),
         title:$(parent).data("title"),
         summary: $(parent).data("desc") != null ? $(parent).data("desc") : 'MIYAOW个人博客分享,欢迎指教',
         pic: 'http://ovr5hz4v2.bkt.clouddn.com/avatar.jpg'
 	};
 	return result;
 	
+}
+
+function getRootPath() {
+    //获取当前网址
+    var curWwwPath = window.document.location.href;
+    //获取主机地址之后的目录
+    var pathName = window.document.location.pathname;
+    var pos = curWwwPath.indexOf(pathName);
+    //获取主机地址
+    var localhostPaht = curWwwPath.substring(0, pos);
+    //获取带"/"的项目名
+    var projectName = pathName.substring(0,
+        pathName.substr(1).indexOf('/') + 1);
+    return (localhostPaht + projectName);
 }
