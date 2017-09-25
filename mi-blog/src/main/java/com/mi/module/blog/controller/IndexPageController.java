@@ -102,15 +102,17 @@ public class IndexPageController {
      * @return
      */
     @RequestMapping("/type/list/{typeId}")
-    public String loadArticleByCategory(Model model, Pager pager, @PathVariable String typeId) {
+    public String selectArticleByCategory(Model model, Page pages, @PathVariable String typeId) {
 
         model.addAttribute("typeId", typeId);
-        List<ArticleVo> articleList = iArticleService.selectArticleByType(pager, typeId);
-        if (!articleList.isEmpty()) {
-            model.addAttribute("articleList", articleList);
-            model.addAttribute("pager", pager);
-            model.addAttribute("typeName", articleList.get(0).getTypeList().get(0).getTypeName());
+        Page<ArticleVo> page;
+
+        page = iArticleService.selectArticleByType(pages, typeId);
+
+        if (!page.getRecords().isEmpty()) {
+            model.addAttribute("typeName", page.getRecords().get(0).getTypeList().get(0).getTypeName());
         }
+        model.addAttribute("page", page);
         return "blog/type";
     }
 

@@ -40,7 +40,9 @@ public interface ArticleMapper extends BaseMapper<Article> {
 
     List<ArticleVo> selectArticleByArchive(Page<ArticleVo> page);
 
-    List<ArticleVo> selectArticleByType(@Param("pager") Pager pager, @Param("typeId") String typeId);
+    List<ArticleVo> selectArticleByType(@Param("Pager") Pager Pager, @Param("typeId") String typeId);
+
+    List<ArticleVo> selectArticleByType2(@Param("page") Page<ArticleVo> page, @Param("typeId") String typeId);
 
 
 }

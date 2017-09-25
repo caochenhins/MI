@@ -107,8 +107,6 @@ public interface IArticleService extends IService<Article> {
 
     Page<ArticleVo> selectArticleByArchive(Page<ArticleVo> page);
 
-
-    List<ArticleVo> selectArticleByType(Pager pager, String typeId);
-
+    Page<ArticleVo> selectArticleByType(Page<ArticleVo> page, String typeId);
 
 }

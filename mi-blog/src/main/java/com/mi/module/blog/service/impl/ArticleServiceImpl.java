@@ -150,9 +150,10 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     }
 
     @Override
-    public List<ArticleVo> selectArticleByType(Pager pager, String typeId) {
-        pager.getStart();
-        return articleMapper.selectArticleByType(pager, typeId);
+    public Page<ArticleVo> selectArticleByType(Page<ArticleVo> page, String typeId) {
+        List<ArticleVo> list = articleMapper.selectArticleByType2(page, typeId);
+        page.setRecords(list);
+        return page;
     }
 
 

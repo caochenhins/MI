@@ -106,7 +106,8 @@ public class MenuController {
      * 关于作者
      **/
     @RequestMapping("/about/me")
-    public String aboutMe() {
+    public String aboutMe(Model model) {
+        model.addAttribute("vt", 1000);
         return "blog/aboutMe";
     }
 
