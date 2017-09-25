@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableName;
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -15,6 +17,7 @@ import java.io.Serializable;
  *         Created by 2017-07-09.
  */
 @TableName("blog_article_type")
+@Data
 public class ArticleType extends Model<ArticleType> {
 
     private static final long serialVersionUID = 1L;
@@ -29,36 +32,6 @@ public class ArticleType extends Model<ArticleType> {
      */
 	@TableField("type_id")
 	private String typeId;
-    /**
-     * 标签名称
-     */
-	@TableField("type_name")
-	private String typeName;
-
-
-	public String getArticleId() {
-		return articleId;
-	}
-
-	public void setArticleId(String articleId) {
-		this.articleId = articleId;
-	}
-
-	public String getTypeId() {
-		return typeId;
-	}
-
-	public void setTypeId(String typeId) {
-		this.typeId = typeId;
-	}
-
-	public String getTypeName() {
-		return typeName;
-	}
-
-	public void setTypeName(String typeName) {
-		this.typeName = typeName;
-	}
 
 	@Override
 	protected Serializable pkVal() {

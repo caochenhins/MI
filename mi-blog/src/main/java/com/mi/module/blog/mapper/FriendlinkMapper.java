@@ -19,5 +19,4 @@ public interface FriendlinkMapper extends BaseMapper<Friendlink> {
 
     List<Friendlink> selectAllList();
 
-    List<Friendlink> loadList(@Param("pager")Pager pager, @Param("param") String param);
 }

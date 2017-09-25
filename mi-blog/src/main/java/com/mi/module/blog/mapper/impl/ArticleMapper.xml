@@ -72,8 +72,7 @@
 	<select id="getTag" resultType="com.mi.module.blog.entity.Tag" parameterType="String">
 		select
 		bat.article_id as articleId,
-		bat.tag_id as tagId,
-		bt.tag_name as tagName
+		bat.tag_id as tagId
 		from blog_article_tag bat
 		LEFT JOIN blog_tag bt on bat.tag_id = bt.tag_id
 		where bat.article_id = #{articleId}
@@ -82,8 +81,7 @@
 	<select id="getType" resultType="com.mi.module.blog.entity.Type">
 		select
 		bat.article_id as articleId,
-		bat.type_id as typeId,
-		bt.type_name as typeName
+		bat.type_id as typeId
 		from blog_article_type bat
 		LEFT JOIN blog_type bt on bat.type_id = bt.type_id
 		where bat.article_id = #{articleId}

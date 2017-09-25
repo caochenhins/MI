@@ -28,17 +28,16 @@ $("#update-password").on('click',function () {
                 return false;
             }
 
-
             $.ajax({
                 url: "/admin/password/update",
                 data: $form.serialize(),
                 method: 'POST',
                 success: function (data) {
-                    if (data.resultCode == 'success'){
-                        autoCloseAlert(data.errorInfo,1000);
+                    if (data.code == '200') {
+                        autoCloseAlert(data.msg, 1000);
                         window.location.href = '/loginOut';
                     }
-                    autoCloseAlert(data.errorInfo,1000);
+                    autoCloseAlert(data.msg, 1000);
                     return false;
                 }
             })

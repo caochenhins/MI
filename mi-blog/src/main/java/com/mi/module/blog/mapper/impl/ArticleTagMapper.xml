@@ -6,7 +6,6 @@
 	<resultMap id="BaseResultMap" type="com.mi.module.blog.entity.ArticleTag">
 		<id column="article_id" property="articleId" />
 		<result column="tag_id" property="tagId" />
-		<result column="tag_name" property="tagName" />
 	</resultMap>
 
 </mapper>

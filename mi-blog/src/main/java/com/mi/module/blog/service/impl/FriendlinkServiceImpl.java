@@ -31,10 +31,4 @@ public class FriendlinkServiceImpl extends ServiceImpl<FriendlinkMapper, Friendl
         return friendlinkMapper.selectAllList();
     }
 
-    @Override
-    public void initPage(Pager pager) {
-        EntityWrapper<Friendlink> ew = new EntityWrapper<>();
-        int count = friendlinkMapper.selectCount(ew);
-        pager.setTotalCount(count);
-    }
 }

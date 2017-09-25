@@ -179,10 +179,10 @@ $("#dataList").on('click', '.delete', function () {
                         data: 'id=' + id,
                         success: function (data) {
                             if (data.code == '200') {
-                                autoCloseAlert(data.msg, 1000);
+                                autoCloseAlert(data.msg, 500);
                                 loadList();
                             } else {
-                                autoCloseAlert(data.msg, 1000);
+                                autoCloseAlert(data.msg, 500);
                             }
                         }
                     });
@@ -190,7 +190,6 @@ $("#dataList").on('click', '.delete', function () {
             },
             success: {
                 text: '取消', style: 'danger', action: function () {
-
                 }
             }
         }

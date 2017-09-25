@@ -110,6 +110,7 @@ public class AdminFlinkController {
         paramFlink.setSiteUrl(flink.getSiteUrl());
         paramFlink.setSiteAuthor(flink.getSiteAuthor());
         paramFlink.setSort(flink.getSort());
+        paramFlink.setUpdateTime(new Date());
         boolean  result = iFriendlinkService.updateById(paramFlink);
         if (result){
             br.setMsg("修改成功");
