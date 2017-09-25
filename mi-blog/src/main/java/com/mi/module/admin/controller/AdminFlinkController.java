@@ -1,22 +1,20 @@
 package com.mi.module.admin.controller;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.plugins.Page;
+import com.baomidou.mybatisplus.toolkit.StringUtils;
 import com.mi.common.model.BaseResult;
 import com.mi.common.model.ReturnCode;
 import com.mi.common.util.IDUntil;
-import com.mi.data.vo.Pager;
 import com.mi.module.blog.entity.Friendlink;
 import com.mi.module.blog.service.IFriendlinkService;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Date;
-import java.util.List;
 
 
 /**
@@ -32,32 +30,41 @@ public class AdminFlinkController {
     @Autowired
     private IFriendlinkService iFriendlinkService;
 
-    @RequestMapping("/initPage")
-    @ResponseBody
-    public Pager initPage(Pager pager){
-        iFriendlinkService.initPage(pager);
-        return pager;
+    /**
+     * 跳转到管理链接页面
+     * @return
+     */
+    @RequestMapping("/mgr")
+    public String flinkPage() {
+        return "admin/flink/flinkList";
     }
 
     /**
-     * 跳转添加友链页面
+     * 加载友链列表（分页）
      * @return
      */
-    @RequestMapping("/addJump")
-    public String partnerAddPage(){
+    @RequestMapping("/list")
+    public String selectPage(Page pages, String param, Model model) {
+        Page<Friendlink> page;
+        EntityWrapper<Friendlink> ex = new EntityWrapper<>();
+        if (StringUtils.checkValNotNull(param)) {
+            ex.where("site_name like concat('%',{0},'%')", param);
+        }
+        page = iFriendlinkService.selectPage(new Page(pages.getCurrent(), pages.getSize()), ex);
+        model.addAttribute("page", page);
+        return "admin/flink/flinkTable";
+    }
+
+    /**
+     * 添加跳转
+     *
+     * @return
+     */
+    @RequestMapping("/add")
+    public String partnerAddPage() {
         return "admin/flink/flinkAdd";
     }
 
-    /**
-     * 加载友链列表
-     * @return
-     */
-    @RequestMapping("/load")
-    public String  load(Pager pager,String param,Model model){
-        List<Friendlink> flinkList = iFriendlinkService.loadList(pager,param);
-        model.addAttribute("flinkList",flinkList);
-        return "admin/flink/flinkTable";
-    }
 
     /**
      * 保存友链
@@ -81,7 +88,7 @@ public class AdminFlinkController {
         return br;
     }
 
-    @RequestMapping("/editJump")
+    @RequestMapping("/edit")
     public String editPage(String id, Model model){
         Friendlink flink = iFriendlinkService.selectById(id);
         model.addAttribute("flink",flink);

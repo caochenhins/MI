@@ -21,5 +21,4 @@ public interface IFriendlinkService extends IService<Friendlink> {
 
     void initPage(Pager pager);
 
-    List<Friendlink> loadList(Pager pager,String param);
 }

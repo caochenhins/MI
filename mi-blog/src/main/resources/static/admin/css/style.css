@@ -53,6 +53,7 @@ h5 {
 .navbar-default .nav > li > a:focus {
   background-color: #293846;
   color: white;
+    /* padding: 1px 10px 5px 1px; */
 }
 .nav .open > a,
 .nav .open > a:hover,
@@ -231,7 +232,7 @@ body.body-small .navbar-top-links li:last-child {
   border-bottom: none !important;
 }
 .nav-second-level li a {
-  padding: 7px 10px 7px 10px;
+    padding: 10px;
   padding-left: 52px;
 }
 .nav-third-level li a {
@@ -565,6 +566,7 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
 }
 .btn {
   border-radius: 3px;
+    /* margin-bottom: 4px; */
 }
 .float-e-margins .btn {
   margin-bottom: 5px;
@@ -3079,8 +3081,8 @@ ol.unstyled {
   right: 0;
   z-index: 1000;
   padding: 10px 20px;
-/*  background: white;
-  border-top: 1px solid #e7eaec;*/
+    /*  background: white;
+      border-top: 1px solid #e7eaec;*/
   margin-left: 220px;
 }
 body.mini-navbar .footer.fixed,

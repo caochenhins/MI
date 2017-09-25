@@ -11,20 +11,11 @@
 		<result column="site_desc" property="siteDesc" />
 		<result column="sort" property="sort" />
 		<result column="create_time" property="createTime" />
+		<result column="update_time" property="updateTime"/>
 	</resultMap>
 
 	<select id="selectAllList" resultMap="BaseResultMap" >
 		select * from blog_friendlink
-	</select>
-
-	<select id="loadList" resultMap="BaseResultMap">
-
-		select * from blog_friendlink
-		<if test="param!=null">
-			where site_name like concat('%',#{param},'%')
-		</if>
-		limit #{pager.start},#{pager.limit}
-
 	</select>
 
 </mapper>

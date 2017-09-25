@@ -8,12 +8,12 @@
         <th>站点地址</th>
         <th>描述</th>
         <th>排序</th>
-        <th>操作</th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
 
-    <tr class="gradeX" th:each="flink : ${flinkList}">
+    <tr class="gradeX" th:each="flink : ${page.records}">
         <td th:text="${flink.flinkId}"></td>
         <td th:text="${flink.siteName}"></td>
         <td><a th:href="${flink.siteUrl}" th:text="${flink.siteUrl}" target="_blank" rel="noreferrer" style="cursor:help;display:inline !important;"></a></td>
@@ -31,4 +31,13 @@
     </tr>
     </tbody>
 </table>
+
+<div th:if="${page.total}>0" style="float: left" class="pagination">共
+    <span th:text="${page.total}"></span> 条记录
+    <span th:text="${page.current}"></span> /
+    <span th:text="${page.pages}"></span>
+</div>
+
+<div th:include="blog/part/page :: page" url="/admin/flink/list"></div>
+
 </html>

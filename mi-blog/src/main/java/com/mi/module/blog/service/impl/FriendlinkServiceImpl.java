@@ -37,10 +37,4 @@ public class FriendlinkServiceImpl extends ServiceImpl<FriendlinkMapper, Friendl
         int count = friendlinkMapper.selectCount(ew);
         pager.setTotalCount(count);
     }
-
-    @Override
-    public List<Friendlink> loadList(Pager pager, String param) {
-        pager.setStart(pager.getStart());
-        return friendlinkMapper.loadList(pager,param);
-    }
 }

@@ -1,6 +1,5 @@
 /**
  * 修改密码
- * @author EumJi
  */
 $("#update-password").on('click',function () {
     var html = ' <div class="form-row">' +
@@ -28,6 +27,8 @@ $("#update-password").on('click',function () {
                 autoCloseAlert("两次密码不一致",1000);
                 return false;
             }
+
+
             $.ajax({
                 url: "/admin/password/update",
                 data: $form.serialize(),
@@ -51,7 +52,6 @@ $("#update-password").on('click',function () {
  * 判断字符串是否为空
  * @param str 字符串
  * @returns {boolean}
- * @author eumji
  */
 function isEmpty(str) {
     if (str == null || str == '' || str == undefined){

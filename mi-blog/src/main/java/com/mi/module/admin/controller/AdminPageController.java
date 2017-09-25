@@ -9,7 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -47,17 +51,6 @@ public class AdminPageController {
     }
 
 
-    /**
-     * 跳转到友链展示页面
-     *
-     * @return
-     */
-    @RequestMapping("/admin/flink/list")
-    public String flinkPage(Model model) {
-        UserInfo userInfo = iUserInfoService.selectByUserId("1");
-        model.addAttribute("userInfo", userInfo);
-        return "admin/flink/flinkList";
-    }
 
     /**
      * 跳转到分类列表页面

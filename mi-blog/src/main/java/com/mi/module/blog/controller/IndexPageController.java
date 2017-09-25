@@ -59,7 +59,7 @@ public class IndexPageController {
 
 
         //友情链接
-        List<Friendlink> fLinkList = iFriendlinkService.selectAllList();
+        List<Friendlink> fLinkList = iFriendlinkService.selectList(null);
         model.addAttribute("fLinkList", fLinkList);
 
 

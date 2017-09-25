@@ -3,7 +3,7 @@
 <head th:replace="blog/part/head :: head"></head>
 <body>
 
-<div id="main-article">
+<div id="dataList">
 
     <article th:each="article : ${page.records}"
              th:id="'/article/details/'+${article.articleId}"
@@ -74,17 +74,11 @@
 
             </footer>
         </div>
+
     </article>
 
 
-    <div th:include="blog/part/page :: page" url="/article/list" th:data="${page.current}"></div>
-
+    <div th:replace="blog/part/page :: page" url="/article/list"></div>
 </div>
-
-
-<!--分享-->
-<!--<script type="text/javascript" src="/js/share.js"></script>-->
-
-
 </body>
 </html>
