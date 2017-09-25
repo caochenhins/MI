@@ -59,6 +59,8 @@ jqPaginator | jQuery分页组件  | [http://jqpaginator.keenwon.com/](http://jqp
 Thymeleaf | 模板引擎  | [http://www.thymeleaf.org/](http://www.thymeleaf.org/)
 Velocity | 模板引擎  | [http://velocity.apache.org/](http://velocity.apache.org/)
 FontAwesome | 图标CSS分类参考 | [http://www.yeahzan.com/fa/facss.html](http://www.yeahzan.com/fa/facss.html)
+H+ | 后台UI模版 | [http://www.zi-han.net/theme/hplus/](http://www.zi-han.net/theme/hplus/)
+
 
 #### 后端技术
 技术 | 名称 | 官网
@@ -116,6 +118,8 @@ Lombok | 代码消除冗长 | [https://projectlombok.org/](https://projectlombok
 ## 许可证
 
 [MIT](https://github.com/MIYAOW/MI/blob/master/LICENSE "MIT") ☞ [明白更多](http://ovr5hz4v2.bkt.clouddn.com/licenses/MIT.jpg "MIT")
+
+`部分资源请勿用商业用途`
 
 ## 感谢赞助
 ![thanks](.project-resouce/thanks.png)
