@@ -167,4 +167,13 @@
 		and bat.type_id = #{typeId}
 		ORDER BY ba.create_time
 	</select>
+	<!--通过标签获取所有的文章-->
+	<select id="selectArticleByTag" resultMap="article">
+		select ba.*
+		from blog_article ba
+		LEFT JOIN blog_article_tag  bat ON ba.article_id =  bat.article_id
+		where ba.status = 1
+		and bat.tag_id = #{tagId}
+		ORDER BY ba.create_time
+	</select>
 </mapper>

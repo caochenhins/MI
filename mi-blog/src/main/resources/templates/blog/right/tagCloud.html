@@ -4,7 +4,7 @@
 <div class="widget-wrap" th:fragment="tagCloud">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-        <a th:each="tag : ${tagList}" th:href="'/tag/list/'+${tag.tagName}" style="font-size: 10px;"
+        <a th:each="tag : ${tagList}" target="indexFrame" th:href="'/tag/list/'+${tag.tagId}" style="font-size: 10px;"
            th:text="${tag.tagName}"></a>
     </div>
 </div>

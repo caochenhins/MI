@@ -156,5 +156,12 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         return page;
     }
 
+    @Override
+    public Page<ArticleVo> selectArticleByTag(Page<ArticleVo> page, String tagId) {
+        List<ArticleVo> list = articleMapper.selectArticleByTag(page, tagId);
+        page.setRecords(list);
+        return page;
+    }
+
 
 }

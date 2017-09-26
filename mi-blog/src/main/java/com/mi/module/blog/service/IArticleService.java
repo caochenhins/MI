@@ -109,4 +109,5 @@ public interface IArticleService extends IService<Article> {
 
     Page<ArticleVo> selectArticleByType(Page<ArticleVo> page, String typeId);
 
+    Page<ArticleVo> selectArticleByTag(Page<ArticleVo> page, String tagId);
 }

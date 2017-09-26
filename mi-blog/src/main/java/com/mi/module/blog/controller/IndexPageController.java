@@ -94,15 +94,15 @@ public class IndexPageController {
 
 
     /**
-     * 获取某个类别标签的分页文章
+     * 获取某个类别的分页文章
      *
      * @param model
-     * @param pager
+     * @param pages
      * @param typeId
      * @return
      */
     @RequestMapping("/type/list/{typeId}")
-    public String selectArticleByCategory(Model model, Page pages, @PathVariable String typeId) {
+    public String selectArticleByType(Model model, Page pages, @PathVariable String typeId) {
 
         model.addAttribute("typeId", typeId);
         Page<ArticleVo> page;
@@ -117,5 +117,27 @@ public class IndexPageController {
     }
 
 
+    /**
+     * 获取某个类别的分页文章
+     *
+     * @param model
+     * @param pages
+     * @param typeId
+     * @return
+     */
+    @RequestMapping("/tag/list/{tagId}")
+    public String selectArticleByTag(Model model, Page pages, @PathVariable String tagId) {
+
+        model.addAttribute("tagId", tagId);
+        Page<ArticleVo> page;
+
+        page = iArticleService.selectArticleByTag(pages, tagId);
+
+        if (!page.getRecords().isEmpty()) {
+            model.addAttribute("tagName", page.getRecords().get(0).getTagList().get(0).getTagName());
+        }
+        model.addAttribute("page", page);
+        return "blog/tag";
+    }
 
 }
