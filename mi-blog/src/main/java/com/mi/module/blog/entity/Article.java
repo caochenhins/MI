@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableName;
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -16,6 +18,7 @@ import java.io.Serializable;
  *         Created by 2017-07-09.
  */
 @TableName("blog_article")
+@Data
 public class Article extends Model<Article> {
 
     private static final long serialVersionUID = 1L;
@@ -41,6 +44,12 @@ public class Article extends Model<Article> {
      * 状态 0：正常  1：不可用
      */
 	private Integer status;
+
+    /**
+     * 状态 0：原创  1：转载
+     */
+    private Integer classType;
+
     /**
      * 作者
      */
@@ -62,77 +71,6 @@ public class Article extends Model<Article> {
 	private Integer lookCount;
 
 
-	public String getArticleId() {
-		return articleId;
-	}
-
-	public void setArticleId(String articleId) {
-		this.articleId = articleId;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public Integer getStatus() {
-		return status;
-	}
-
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
-
-	public String getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(String author) {
-		this.author = author;
-	}
-
-	public Date getCreateTime() {
-		return createTime;
-	}
-
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-
-	public Date getUpdateTime() {
-		return updateTime;
-	}
-
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
-	}
-
-	public Integer getLookCount() {
-		return lookCount;
-	}
-
-	public void setLookCount(Integer lookCount) {
-		this.lookCount = lookCount;
-	}
 
 	@Override
 	protected Serializable pkVal() {

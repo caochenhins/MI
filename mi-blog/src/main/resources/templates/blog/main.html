@@ -63,7 +63,7 @@
                 </p>
             </div>
             <footer class="article-footer">
-                <div class="share-container" style="text-transform: none;">
+                <div class="share-container" style="text-transform: none;" th:if="${article.tagList.size()}>0">
                     <i class="fa fa-tag"></i>
                     <!--th:href="'/tag/details/'+${tagListStat.tagId}"-->
                     <a class="article-tag-link" th:each="tag : ${article.tagList}" th:href="'/tag/list/'+${tag.tagId}"

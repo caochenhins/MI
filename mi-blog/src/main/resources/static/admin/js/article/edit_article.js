@@ -115,6 +115,13 @@ function save() {
         autoCloseAlert("请选择栏目",500);
         return false;
     }
+
+    var fromType = $("#fromType").val();
+    if (isEmpty(fromType)) {
+        autoCloseAlert("请选择栏目", 500);
+        return false;
+    }
+
     var title = $("#title").val();
     if(isEmpty(title)){
         autoCloseAlert("请输入标题",500);
@@ -151,7 +158,7 @@ function save() {
     $.ajax({
         type : "POST",
         url :  '/admin/article/update',
-        data : 'articleId='+id+'&typeId=' + typeId + "&tags=" + tagIds + "&title=" + title + "&content=" + content + "&description=" +  description,
+        data: 'articleId=' + id + '&typeId=' + '&classType' + fromType + typeId + "&tags=" + tagIds + "&title=" + title + "&content=" + content + "&description=" + description,
         success  : function(data) {
             if(data.code != '200'){
                 autoCloseAlert(data.msg,1000);

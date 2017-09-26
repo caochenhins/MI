@@ -104,6 +104,11 @@ function save() {
         autoCloseAlert("请选择分类", 500);
         return false;
     }
+    var fromType = $("#fromType option:selected").val();
+    if (isEmpty(fromType)) {
+        autoCloseAlert("请选择来源", 500);
+        return false;
+    }
 
     var title = $("#title").val();
     if (isEmpty(title)) {
@@ -127,25 +132,25 @@ function save() {
         tagIds.push($(this).val());
     })
 
-    if (isEmpty(tagIds)) {
-        autoCloseAlert("请输入标签", 500);
-        return false;
-        // var ids = (tagId+"").split(",");
-        // var tagArray = [];
-        // for(var i=0;i<ids.length;i++){
-        //     tagObj = {id:ids[i]};
-        //     tagArray.push(tagObj);
-        // }
-        // param["tagList"] = tagArray;
-        // console.info(tagArray);
-    }
+    // if (isEmpty(tagIds)) {
+    //     autoCloseAlert("请输入标签", 500);
+    //     return false;
+    //     // var ids = (tagId+"").split(",");
+    //     // var tagArray = [];
+    //     // for(var i=0;i<ids.length;i++){
+    //     //     tagObj = {id:ids[i]};
+    //     //     tagArray.push(tagObj);
+    //     // }
+    //     // param["tagList"] = tagArray;
+    //     // console.info(tagArray);
+    // }
 
 
     // 保存文章
     $.ajax({
         type: "POST",
         url: '/admin/article/save',
-        data: 'typeId=' + typeId + "&tags=" + tagIds + "&title=" + title + "&content=" + content + "&description=" +  description,
+        data: 'fromType=' + fromType + 'typeId=' + typeId + "&tags=" + tagIds + "&title=" + title + "&content=" + content + "&description=" + description,
         success: function (data) {
             if (data.code != 200) {
                 autoCloseAlert(data.msg, 1000);
