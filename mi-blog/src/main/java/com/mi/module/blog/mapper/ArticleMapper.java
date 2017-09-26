@@ -26,7 +26,6 @@ public interface ArticleMapper extends BaseMapper<Article> {
 
 
 
-    List<Article> loadArticle(Map<String, Object> param);
 
     ArticleVo getArticleCustomById(String articleId);
 
@@ -45,4 +44,6 @@ public interface ArticleMapper extends BaseMapper<Article> {
     List<ArticleVo> selectArticleByType2(@Param("page") Page<ArticleVo> page, @Param("typeId") String typeId);
 
     List<ArticleVo> selectArticleByTag(@Param("page") Page<ArticleVo> page, @Param("tagId") String tagId);
+
+    List<Article> selectArticlePage(@Param("page") Page page, @Param("param") Map<String, Object> param);
 }

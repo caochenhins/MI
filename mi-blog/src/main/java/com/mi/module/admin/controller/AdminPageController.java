@@ -50,52 +50,6 @@ public class AdminPageController {
         return "login";
     }
 
-
-
-    /**
-     * 跳转到分类列表页面
-     *
-     * @param model
-     * @return
-     */
-    @RequestMapping("/admin/type/list")
-    public String typePage(Model model) {
-        UserInfo userInfo = iUserInfoService.selectByUserId("1");
-        model.addAttribute("userInfo", userInfo);
-        return "admin/type/typeList";
-    }
-
-    /**
-     * 跳转标签展示页面
-     *
-     * @param model
-     * @return
-     */
-    @RequestMapping("/admin/tag/list")
-    public String tagPage(Model model) {
-        UserInfo userInfo = iUserInfoService.selectByUserId("1");
-        model.addAttribute("userInfo", userInfo);
-        return "admin/tag/tagList";
-    }
-
-    /**
-     * 文章首页
-     **/
-    @RequestMapping("/admin/article/list")
-    public String articlePage(Model model) {
-        EntityWrapper<Tag> eTag = new EntityWrapper();
-        EntityWrapper<Type> eType = new EntityWrapper();
-
-        List<Tag> tagList = iTagService.selectList(eTag);
-        List<Type> typeList = iTypeService.selectList(eType);
-        UserInfo userInfo = iUserInfoService.selectByUserId("1");
-
-        model.addAttribute("userInfo", userInfo);
-        model.addAttribute("tagList", tagList);
-        model.addAttribute("typeList", typeList);
-        return "admin/article/articleList";
-    }
-
     /**
      * 后台首页（文章）
      **/
@@ -113,5 +67,6 @@ public class AdminPageController {
         model.addAttribute("userInfo", userInfo);
         return "admin/index";
     }
+
 
 }

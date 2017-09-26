@@ -40,7 +40,7 @@ public class AdminFlinkController {
     }
 
     /**
-     * 加载友链列表（分页）
+     * 加载列表（分页）
      * @return
      */
     @RequestMapping("/list")
@@ -57,11 +57,10 @@ public class AdminFlinkController {
 
     /**
      * 添加跳转
-     *
      * @return
      */
     @RequestMapping("/add")
-    public String partnerAddPage() {
+    public String addPage() {
         return "admin/flink/flinkAdd";
     }
 

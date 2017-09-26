@@ -59,11 +59,6 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
 
 
     @Override
-    public List<Article> loadArticle(Map<String, Object> param) {
-        return articleMapper.loadArticle(param);
-    }
-
-    @Override
     @Transactional
     public Integer insertArticle(Article article, String[] tags, String typeId) {
 
@@ -159,6 +154,14 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     @Override
     public Page<ArticleVo> selectArticleByTag(Page<ArticleVo> page, String tagId) {
         List<ArticleVo> list = articleMapper.selectArticleByTag(page, tagId);
+        page.setRecords(list);
+        return page;
+    }
+
+
+    @Override
+    public Page<Article> selectArticlePage(Page page, Map<String, Object> param) {
+        List<Article> list = articleMapper.selectArticlePage(page, param);
         page.setRecords(list);
         return page;
     }

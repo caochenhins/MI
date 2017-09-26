@@ -38,12 +38,6 @@ public interface IArticleService extends IService<Article> {
 
 
 
-    /**
-     * 条件查询文章
-     * @param param
-     * @return
-     */
-    List<Article> loadArticle(Map<String, Object> param);
 
     /**
      * 添加文章
@@ -110,4 +104,12 @@ public interface IArticleService extends IService<Article> {
     Page<ArticleVo> selectArticleByType(Page<ArticleVo> page, String typeId);
 
     Page<ArticleVo> selectArticleByTag(Page<ArticleVo> page, String tagId);
+
+    /**
+     * 条件查询文章
+     *
+     * @param param
+     * @return
+     */
+    Page<Article> selectArticlePage(Page pages, Map<String, Object> param);
 }

@@ -6,9 +6,7 @@ $(function() {
 });
 // 加载菜单列表
 function loadList(param, page) {
-    if (isEmpty(page) || page == 0) {
-        page = 1;
-    }
+
     // 查询列表
     $.ajax({
         type: 'GET',

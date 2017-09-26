@@ -12,7 +12,7 @@
     </thead>
     <tbody>
 
-    <tr class="gradeX" th:each="type : ${typeList}">
+    <tr class="gradeX" th:each="type : ${page.records}">
         <td th:text="${type.typeId}"></td>
         <td th:text="${type.typeName}"></td>
         <td th:text="${type.aliasName}"></td>
@@ -28,4 +28,13 @@
     </tr>
     </tbody>
 </table>
+
+<div th:if="${page.total}>0" style="float: left" class="pagination">共
+    <span th:text="${page.total}"></span> 条记录
+    <span th:text="${page.current}"></span> /
+    <span th:text="${page.pages}"></span>
+</div>
+
+<div th:include="blog/part/page :: page" url="/admin/type/list"></div>
+
 </html>

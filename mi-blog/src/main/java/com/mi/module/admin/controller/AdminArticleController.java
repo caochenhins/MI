@@ -1,6 +1,7 @@
 package com.mi.module.admin.controller;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.plugins.Page;
 import com.mi.common.model.BaseResult;
 import com.mi.common.model.ReturnCode;
 import com.mi.data.vo.Pager;
@@ -33,38 +34,40 @@ import java.util.Map;
 public class AdminArticleController {
 
     @Autowired
-    IArticleService iArticleService; //文章service
+    IArticleService iArticleService;
     @Autowired
-    ITypeService iTypeService; //分类service
+    ITypeService iTypeService;
     @Autowired
-    ITagService iTagService; //标签service
+    ITagService iTagService;
     @Autowired
     IUserInfoService iUserInfoService;
     @Autowired
     IUserService iUserService;
-
     @Autowired
     IArticleTagService iArticleTagService;
     @Autowired
     IArticleTypeService iArticleTypeService;
 
     /**
-     * 初始化文章分页信息
-     *
-     * @param pager
-     * @return
-     */
-    @RequestMapping("/initPage")
-    @ResponseBody
-    public Pager initPage(Pager pager) {
-        iArticleService.initPage(pager);
-        return pager;
+     * 文章首页
+     **/
+    @RequestMapping("/mgr")
+    public String articlePage(Model model) {
+
+        EntityWrapper<Tag> eTag = new EntityWrapper();
+        EntityWrapper<Type> eType = new EntityWrapper();
+        List<Tag> tagList = iTagService.selectList(eTag);
+        List<Type> typeList = iTypeService.selectList(eType);
+        model.addAttribute("tagList", tagList);
+        model.addAttribute("typeList", typeList);
+
+        return "admin/article/articleList";
     }
 
     /**
      * 初始化文章列表
      *
-     * @param pager  分页对象
+     * @param pages  分页对象
      * @param typeId 搜索条件 分类id
      * @param tagIds 搜索条件 tag集合
      * @param title  搜索条件 文章标题
@@ -72,12 +75,8 @@ public class AdminArticleController {
      * @return
      */
 
-    @RequestMapping("/load")
-    public String loadArticle(Pager pager, String typeId, String tagIds, String title, Model model) {
-        /**
-         * 设置start位置
-         */
-        pager.setStart(pager.getStart());
+    @RequestMapping("/list")
+    public String selectPage(Page pages, String typeId, String tagIds, String title, Model model) {
         //封装查询条件
         Map<String, Object> param = new HashMap<>();
         if (tagIds != null && !"".equals(tagIds)) {
@@ -87,10 +86,12 @@ public class AdminArticleController {
         }
         param.put("typeId", typeId);
         param.put("title", title);
-        param.put("pager", pager);
         //获取文章列表
-        List<Article> articleList = iArticleService.loadArticle(param);
-        model.addAttribute("articleList", articleList);
+        Page<Article> page;
+        page = iArticleService.selectArticlePage(pages, param);
+
+        model.addAttribute("page", page);
+
         return "admin/article/articleTable";
     }
 

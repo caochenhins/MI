@@ -33,7 +33,7 @@
 	</resultMap>
 
 	<!--条件查询文章-->
-	<select id="loadArticle" resultMap="BaseResultMap" parameterType="Map">
+	<select id="selectArticlePage" resultMap="BaseResultMap">
 		select b.*
 		from blog_article b
 		where 1=1

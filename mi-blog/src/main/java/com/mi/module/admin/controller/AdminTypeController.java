@@ -1,12 +1,15 @@
 package com.mi.module.admin.controller;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.plugins.Page;
+import com.baomidou.mybatisplus.toolkit.StringUtils;
 import com.mi.common.model.BaseResult;
 import com.mi.common.model.ReturnCode;
 import com.mi.common.util.IDUntil;
 import com.mi.data.vo.Pager;
 import com.mi.module.blog.entity.ArticleType;
 import com.mi.module.blog.entity.Type;
+import com.mi.module.blog.entity.UserInfo;
 import com.mi.module.blog.service.IArticleTypeService;
 import com.mi.module.blog.service.ITypeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,29 +37,31 @@ public class AdminTypeController {
     private IArticleTypeService iArticleTypeService;
 
     /**
-     * 初始化分页信息 获取totalcount
-     * @param pager 分页对象
+     * 跳转到分类列表页面
+     * @param
      * @return
      */
-    @RequestMapping("/initPage")
-    @ResponseBody
-    public Pager initPage(Pager pager){
-        iTypeService.initPage(pager);
-        return pager;
+    @RequestMapping("/mgr")
+    public String typePage() {
+        return "admin/type/typeList";
     }
-
 
     /**
      * 加载分类信息列表
-     * @param pager 分页对象
+     * @param pages 分页对象
      * @param param  搜索条件
      * @param model
      * @return
      */
-    @RequestMapping("/load")
-    public String load(Pager pager ,String param,Model model){
-        List<Type> typeList = iTypeService.load(pager,param);
-        model.addAttribute("typeList",typeList);
+    @RequestMapping("/list")
+    public String selectPage(Page pages, String param, Model model) {
+        Page<Type> page;
+        EntityWrapper<Type> ex = new EntityWrapper<>();
+        if (StringUtils.checkValNotNull(param)) {
+            ex.where("type_name like concat('%',{0},'%')", param);
+        }
+        page = iTypeService.selectPage(new Page(pages.getCurrent(), pages.getSize()), ex);
+        model.addAttribute("page", page);
         return "admin/type/typeTable";
     }
 
@@ -64,7 +69,7 @@ public class AdminTypeController {
      * 跳转到添加页面
      * @return
      */
-    @RequestMapping("/addJump")
+    @RequestMapping("/add")
     public String addPage(){
         return "admin/type/typeAdd";
     }
@@ -100,7 +105,7 @@ public class AdminTypeController {
      * @param model
      * @return
      */
-    @RequestMapping("/editJump")
+    @RequestMapping("/edit")
     public String editPage(String typeId, Model model){
         Type type = iTypeService.selectById(typeId);
         model.addAttribute("type",type);
@@ -150,6 +155,12 @@ public class AdminTypeController {
         return new BaseResult(null, ReturnCode.SUCCESS);
     }
 
+    /**
+     * 删除
+     *
+     * @param typeId
+     * @return
+     */
     @RequestMapping("/delete")
     @ResponseBody
     public BaseResult delete(String typeId){
@@ -157,7 +168,7 @@ public class AdminTypeController {
             return new BaseResult(null, ReturnCode.SUCCESS);
         }
         return new BaseResult(null, ReturnCode.FAIL);
-
     }
+
 
 }
