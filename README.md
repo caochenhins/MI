@@ -114,6 +114,26 @@ Lombok | 代码消除冗长 | [https://projectlombok.org/](https://projectlombok
 ![Swagger2](.project-resouce/项目效果图/swagger2.gif)
 
 
+### MI-BLog 模块预览图
+
+#### 首页展示部分
+
+![首页](.project-resouce/项目效果图/blog/index.jpg)
+
+#### 文章详情页
+
+![文章详情](.project-resouce/项目效果图/blog/detail.jpg)
+
+
+#### 后端总览界面
+
+![后台管理界面](.project-resouce/项目效果图/blog/background.jpg)
+
+#### markdown编辑器
+
+![markdown界面](.project-resouce/项目效果图/blog/markdown.jpg)
+
+
 
 ## 许可证
 

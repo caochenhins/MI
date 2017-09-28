@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](http://blog.csdn.net/fjnpysh)
 
 
-## 博客模块
+## MI-博客模块
 
   
 
@@ -16,9 +16,9 @@
 ## 技术掌握
 
  - Spring 
- - Spring security 
- - Spring boot
- - Mybatis
+ - Spring Security 
+ - Spring Boot
+ - Mybatis-plus
  - Bootstrap
  - Thymeleaf
  - Editor.md
@@ -28,21 +28,11 @@
 
 发布 V1.0 测试版。
 
-### 更新历程：
-
-####  **20170703** 初始化项目
-
-
-## 安装打包
-
-
-
-## 操作简要
-
-
 ## License
 
 The mi-blog is released under version 2.0 of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0).
 
+
+- 基础版本（因为开源的博客系统太多，可选择性部署。也可以自己编写）
 
 - 更新 `README.md` 等相关文档和示例；
