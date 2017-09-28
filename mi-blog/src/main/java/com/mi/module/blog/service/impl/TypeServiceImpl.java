@@ -31,14 +31,6 @@ public class TypeServiceImpl extends ServiceImpl<TypeMapper, Type> implements IT
     @Resource
     private ArticleMapper articleMapper;
 
-
-    @Override
-    public void initPage(Pager pager) {
-        EntityWrapper<Type> ew = new EntityWrapper<>();
-        int count = typeMapper.selectCount(ew);
-        pager.setTotalCount(count);
-    }
-
     @Override
     public List<Type> load(Pager pager, String param) {
         pager.setStart(pager.getStart());

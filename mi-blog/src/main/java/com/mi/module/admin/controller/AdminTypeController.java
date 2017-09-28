@@ -60,6 +60,8 @@ public class AdminTypeController {
         if (StringUtils.checkValNotNull(param)) {
             ex.where("type_name like concat('%',{0},'%')", param);
         }
+        ex.orderBy("sort", true);
+        ex.orderBy("create_time", true);
         page = iTypeService.selectPage(new Page(pages.getCurrent(), pages.getSize()), ex);
         model.addAttribute("page", page);
         return "admin/type/typeTable";

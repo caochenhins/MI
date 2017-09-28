@@ -33,29 +33,29 @@
 	</resultMap>
 
 	<!--条件查询文章-->
-	<select id="selectArticlePage" resultMap="BaseResultMap">
+	<select id="selectArticlePage" resultMap="BaseResultMap" parameterType="map">
 		select b.*
 		from blog_article b
 		where 1=1
-		<if test="typeId != null and typeId != ''">
+		<if test="p.typeId != null and p.typeId != ''">
 			and b.article_id in
 			(
 			select DISTINCT article_Id from blog_article_type where blog_article_type.type_Id
-			= #{typeId}
+			= #{p.typeId}
 			)
 		</if>
-		<if test="tags != null and tags != ''">
+		<if test="p.tags != null and p.tags != ''">
 			and b.article_id in
 			(select DISTINCT article_Id from blog_article_tag where blog_article_tag.tag_Id in
-			<foreach collection="tags" item="item" index="index" open="(" separator="," close=")">
+			<foreach collection="p.tags" item="item" index="index" open="(" separator="," close=")">
 				#{item}
 			</foreach>
 			)
 		</if>
-		<if test="title != null and title != ''">
-			and title like concat('%',#{title},'%')
+		<if test="p.title != null and p.title != ''">
+			and b.title like concat('%',#{p.title},'%')
 		</if>
-		order by create_time desc limit #{pager.start},#{pager.limit}
+		ORDER BY b.create_time desc
 	</select>
 
 	<!--获取所有的文章-->

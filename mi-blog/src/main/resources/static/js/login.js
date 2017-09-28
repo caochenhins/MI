@@ -1,6 +1,6 @@
 /*$("#login-button").click(function () {
-    loginSubmit();
-});*/
+ loginSubmit();
+ });*/
 
 $("input").keydown(function(e){
     if (e.keyCode==13) {
@@ -78,4 +78,8 @@ $("#denglou").click(function () {
     $("#login_model").show();
     $("#forget_model").hide();
 
+});
+//返回主页
+$("#back-button").click(function () {
+    window.location.href = '/'
 });

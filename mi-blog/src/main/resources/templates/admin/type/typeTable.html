@@ -7,7 +7,7 @@
         <th>名称</th>
         <th>别名</th>
         <th>排序</th>
-        <th>操作</th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -18,10 +18,10 @@
         <td th:text="${type.aliasName}"></td>
         <td th:text="${type.sort}"></td>
         <td th:data-id="${type.typeId}">
-            <button  type="button" class="btn btn-primary btn-xs edit" title="编辑">
+            <button th:if="${type.typeId}!='default'" type="button" class="btn btn-primary btn-xs edit" title="编辑">
                 编辑
             </button>
-            <button class="btn btn-danger btn-xs delete" type="button" title="删除">
+            <button th:if="${type.typeId}!='default'" class="btn btn-danger btn-xs delete" type="button" title="删除">
                 删除
             </button>
         </td>

@@ -9,11 +9,11 @@ function loadList(param, page) {
 
     // 查询列表
     $.ajax({
-        type: 'GET',
+        type: 'POST',
         url: '/admin/flink/list',
         data: {
-            "current": page,
-            "param": param
+            'current': page,
+            'param': param
         },
         success: function (data) {
             $("#dataList").html(data);

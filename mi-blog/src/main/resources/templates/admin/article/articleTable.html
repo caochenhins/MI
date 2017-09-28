@@ -14,7 +14,7 @@
     </thead>
     <tbody>
 
-    <tr class="gradeX" th:each="article : ${articleList}">
+    <tr class="gradeX" th:each="article : ${page.records}">
         <td th:text="${article.articleId}"></td>
         <td>
             <a target="_blank" th:href="'/article/details/'+${article.articleId}" th:text="${article.title}"> </a>

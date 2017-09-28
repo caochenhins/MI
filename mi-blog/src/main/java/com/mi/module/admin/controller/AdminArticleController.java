@@ -112,6 +112,43 @@ public class AdminArticleController {
         return "admin/article/articleInfo";
     }
 
+    /**
+     * 跳转到添加页面
+     * @return
+     */
+    @RequestMapping("/add")
+    public String addPage() {
+        return "admin/article/articleAdd";
+    }
+
+
+    /**
+     * 保存文章
+     * @param article
+     * @param tagIds
+     * @return
+     */
+    @RequestMapping("/save")
+    @ResponseBody
+    public BaseResult insert(Article article, String tagIds, String typeId) {
+        User user = iUserService.getCurrentUser();
+        //封装查询条件
+        String[] tagIdsTemp = null;
+        if (tagIds != null && !"".equals(tagIds)) {
+            tagIdsTemp = tagIds.split(",");
+        } else {
+        }
+        article.setAuthor(user.getUserName());
+        article.setCreateTime(new Date());
+        article.setStatus(article.getClassType());
+        Integer result = iArticleService.insertArticle(article, tagIdsTemp, typeId);
+        if (result == 1) {
+            return new BaseResult(null, ReturnCode.SUCCESS);
+        }
+
+        return new BaseResult(null, ReturnCode.FAIL);
+    }
+
 
     /**
      * 更新文章可用状态
@@ -133,38 +170,9 @@ public class AdminArticleController {
         return new BaseResult(null, ReturnCode.SUCCESS);
     }
 
-    /**
-     * 跳转到添加页面
-     *
-     * @return
-     */
-    @RequestMapping("/addPage")
-    public String addPage() {
-        return "admin/article/articleAdd";
-    }
 
 
-    /**
-     * 保存文章
-     *
-     * @param article
-     * @param tags
-     * @return
-     */
-    @RequestMapping("/save")
-    @ResponseBody
-    public BaseResult insert(Article article, String[] tags, String typeId) {
-        User user = iUserService.getCurrentUser();
-        article.setAuthor(user.getUserName());
-        article.setCreateTime(new Date());
-        article.setStatus(1);
-        Integer result = iArticleService.insertArticle(article, tags, typeId);
-        if (result == 1) {
-            return new BaseResult(null, ReturnCode.SUCCESS);
-        }
 
-        return new BaseResult(null, ReturnCode.FAIL);
-    }
 
     @RequestMapping("/delete")
     @ResponseBody
@@ -198,7 +206,7 @@ public class AdminArticleController {
      * @param model
      * @return
      */
-    @RequestMapping("/editJump")
+    @RequestMapping("/edit")
     public String update(@RequestParam(value = "id") String id, Model model) {
         Article article = iArticleService.selectById(id);
         model.addAttribute("article", article);

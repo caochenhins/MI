@@ -59,6 +59,8 @@ public class AdminTagController {
         if (StringUtils.checkValNotNull(param)) {
             ex.where("tag_name like concat('%',{0},'%')", param);
         }
+        ex.orderBy("sort", true);
+        ex.orderBy("create_time", true);
         page = iTagService.selectPage(new Page(pages.getCurrent(), pages.getSize()), ex);
         model.addAttribute("page", page);
         return "admin/tag/tagTable";

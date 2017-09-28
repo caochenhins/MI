@@ -130,7 +130,7 @@ function save() {
     var tagIds = [];
     $("#tagId option:selected").each(function () {
         tagIds.push($(this).val());
-    })
+    });
 
     // if (isEmpty(tagIds)) {
     //     autoCloseAlert("请输入标签", 500);
@@ -150,7 +150,15 @@ function save() {
     $.ajax({
         type: "POST",
         url: '/admin/article/save',
-        data: 'fromType=' + fromType + 'typeId=' + typeId + "&tags=" + tagIds + "&title=" + title + "&content=" + content + "&description=" + description,
+        traditional: true,
+        data: {
+            'title': title,
+            'typeId': typeId,
+            'classType': fromType,
+            'tagIds': tagIds,
+            'content': content,
+            'description': description
+        },
         success: function (data) {
             if (data.code != 200) {
                 autoCloseAlert(data.msg, 1000);
@@ -162,12 +170,12 @@ function save() {
                     buttons: {
                         primary: {
                             text: '再写一篇', style: 'primary', action: function () {
-                                window.location.href = "/admin/article/addPage";
+                                window.location.href = "/admin/article/add";
                             }
                         },
                         success: {
                             text: '查看博客', style: 'danger', action: function () {
-                                window.location.href = "/admin/article/list";
+                                window.location.href = "/admin/article/mgr";
                             }
                         }
                     }

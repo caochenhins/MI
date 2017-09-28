@@ -171,12 +171,12 @@ function save() {
                     buttons: {
                         primary: {
                             text: '再写一篇', style: 'primary', action: function () {
-                                window.location.href = "/admin/article/addPage";
+                                window.location.href = "/admin/article/add";
                             }
                         },
                         success: {
                             text: '查看博客', style: 'danger', action: function () {
-                                window.location.href = "/admin/article/list";
+                                window.location.href = "/admin/article/mgr";
                             }
                         }
                     }
@@ -190,7 +190,7 @@ function save() {
 }
 
 function cancleEditArticle(){
-	window.location.href = getRootPath()+ "/article/list";
+    window.location.href = getRootPath() + "/article/mgr";
 }
 
 //关闭编辑窗口

@@ -83,7 +83,7 @@ public class MenuController {
     @RequestMapping("/article/list")
     public String selectArticleList(Page pages, Model model) {
         Page<ArticleVo> page;
-        page = iArticleService.selectArticleList(new Page(pages.getCurrent(), 2));
+        page = iArticleService.selectArticleList(new Page(pages.getCurrent(), 5));
         model.addAttribute("page", page);
 
         return "blog/main";

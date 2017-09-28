@@ -18,8 +18,6 @@ import java.util.List;
  */
 public interface ITypeService extends IService<Type> {
 
-    void initPage(Pager pager);
-
     List<Type> load(Pager pager, String param);
 
     boolean checkExist(Type type);

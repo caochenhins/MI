@@ -61,14 +61,16 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     @Override
     @Transactional
     public Integer insertArticle(Article article, String[] tags, String typeId) {
-
+        int result;
         String id = IDUntil.getRandomId(5);
 
-        for (int j = 0; j < tags.length; j++) {
-            ArticleTag articleTag = new ArticleTag();
-            articleTag.setArticleId(id);
-            articleTag.setTagId(tags[j]);
-            articleTagMapper.insert(articleTag);
+        if (tags != null) {
+            for (int j = 0; j < tags.length; j++) {
+                ArticleTag articleTag = new ArticleTag();
+                articleTag.setArticleId(id);
+                articleTag.setTagId(tags[j]);
+                articleTagMapper.insert(articleTag);
+            }
         }
 
         ArticleType articleType = new ArticleType();
@@ -76,7 +78,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         articleType.setTypeId(typeId);
         articleTypeMapper.insert(articleType);
 
-        int result;
+
         article.setArticleId(id);
         result = articleMapper.insert(article);
 
