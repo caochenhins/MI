@@ -166,7 +166,7 @@ public class AdminTypeController {
     @RequestMapping("/delete")
     @ResponseBody
     public BaseResult delete(String typeId){
-        if(iTypeService.deleteById(typeId)){
+        if (iTypeService.deleteType(typeId)) {
             return new BaseResult(null, ReturnCode.SUCCESS);
         }
         return new BaseResult(null, ReturnCode.FAIL);

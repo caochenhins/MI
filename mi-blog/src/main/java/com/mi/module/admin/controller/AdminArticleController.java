@@ -254,13 +254,13 @@ public class AdminArticleController {
      */
     @RequestMapping("/update")
     @ResponseBody
-    public BaseResult updateArticle(Article article, String[] tags, String typeId) {
+    public BaseResult updateArticle(Article article, String tagIds, String typeId) {
         int result = 0;
-        if (tags.length < 1) {
+        if (tagIds.length() < 1) {
             System.err.println("保存原有标签");
             result = iArticleService.updateArticle(article,null,typeId);
         } else {
-            result = iArticleService.updateArticle(article,tags,typeId);
+            result = iArticleService.updateArticle(article, tagIds.split(","), typeId);
             System.err.println("删除原有重新添加新标签");
         }
         if (result == 1) {

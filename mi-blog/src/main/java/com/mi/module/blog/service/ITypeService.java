@@ -29,4 +29,6 @@ public interface ITypeService extends IService<Type> {
     List<TypeVo> initTypeList();
 
     List<ArticleVo> selectArticleByType(Pager pager, String typeId);
+
+    boolean deleteType(String typeId);
 }

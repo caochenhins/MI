@@ -4,12 +4,15 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.mi.data.vo.ArticleVo;
 import com.mi.data.vo.Pager;
 import com.mi.data.vo.TypeVo;
+import com.mi.module.blog.entity.ArticleType;
 import com.mi.module.blog.entity.Type;
 import com.mi.module.blog.mapper.ArticleMapper;
+import com.mi.module.blog.mapper.ArticleTypeMapper;
 import com.mi.module.blog.mapper.TypeMapper;
 import com.mi.module.blog.service.ITypeService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -30,6 +33,10 @@ public class TypeServiceImpl extends ServiceImpl<TypeMapper, Type> implements IT
 
     @Resource
     private ArticleMapper articleMapper;
+
+    @Resource
+    private ArticleTypeMapper articleTypeMapper;
+
 
     @Override
     public List<Type> load(Pager pager, String param) {
@@ -55,5 +62,31 @@ public class TypeServiceImpl extends ServiceImpl<TypeMapper, Type> implements IT
     public List<ArticleVo> selectArticleByType(Pager pager, String typeId) {
         pager.getStart();
         return articleMapper.selectArticleByType(pager, typeId);
+    }
+
+    @Override
+    @Transactional
+    public boolean deleteType(String typeId) {
+        EntityWrapper<ArticleType> ex = new EntityWrapper<>();
+
+        ArticleType a = new ArticleType();
+        a.setTypeId(typeId);
+        ex.setEntity(a);
+        List<ArticleType> list = articleTypeMapper.selectList(ex);
+
+        articleTypeMapper.delete(ex); //删除关系表
+
+        typeMapper.deleteById(typeId); //删除分类
+
+
+        //全部删除完毕后迁移到默认分类下
+        for (ArticleType at : list) {
+            a = new ArticleType();
+            a.setTypeId("default");
+            a.setArticleId(at.getArticleId());
+            articleTypeMapper.insert(a);
+        }
+
+        return true;
     }
 }

@@ -158,10 +158,19 @@ function save() {
     $.ajax({
         type : "POST",
         url :  '/admin/article/update',
-        data: 'articleId=' + id + '&typeId=' + '&classType' + fromType + typeId + "&tags=" + tagIds + "&title=" + title + "&content=" + content + "&description=" + description,
+        traditional: true,
+        data: {
+            'articleId': id,
+            'title': title,
+            'typeId': typeId,
+            'classType': fromType,
+            'tagIds': tagIds,
+            'content': content,
+            'description': description
+        },
         success  : function(data) {
             if(data.code != '200'){
-                autoCloseAlert(data.msg,1000);
+                autoCloseAlert(data.msg, 500);
                 closeEditWindow();
                 return false;
             }else{
