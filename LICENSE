@@ -1,12 +1,11 @@
 MIT License
 
 项目名称：MI
-项目介绍：基于 **Spring Boot** + **Spring Cloud** + **Mybatis-Plus** 为主流框架搭建的分布式敏捷开发系统架构，为中、小型项目打造企业级基础开发解决方案。
+项目介绍：基于SpringBoot+SpringCloud+Mybatis主流框架搭建的分布式敏捷开发系统架构，为中、小型项目打造企业级基础开发解决方案。
 
 作者：猫爷
 ＱＱ：454514080
 Github：https://github.com/miyaow
-
 
 Copyright (c) 2017 Miyaow(yesh)
 
